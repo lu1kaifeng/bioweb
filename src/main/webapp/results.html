@@ -1,0 +1,794 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Biomedical Informatics Institute</title>
+	<link rel="stylesheet" href="Css/common.css" />
+    <link rel="stylesheet" href="Css/data.css"  />
+    <script type="text/JavaScript" src="Js/jquery-1.7.2.min.js" ></script>
+    <script type="text/JavaScript" src="Js/common.js" ></script>
+    <link rel="stylesheet" href="static/css/style.css"  />
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Css/about.css"><link href="Css/menuStyle.css" rel="stylesheet" />
+    <style type="text/css">
+    	a:hover
+    	{
+    	    text-decoration:none;
+    	}
+    	.page { width:100%;background:#F0F0F0 url('Images/img/dian2.png') repeat-x; }
+     	   
+    	div {
+    	position:relative;
+    	} 
+    	.topMenu {
+	z-index:1;		/* 设置元素堆叠顺序，保证菜单能出现在最前端 */
+	font-weight:500;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	width:100%;    /* 设置宽度 */
+	height:50px;    /* 设置指定高度。如果想要增加顶部横向导航栏的高度设置这个 */
+}
+/* 设置底部<div>区域样式 */
+.mainContent {
+	position:absolute;	/* 这个定位是为了让这个<div>区域固定在页面底端 */
+	bottom:0px;			/* 让它定位在底端 */
+	overflow:hidden;	/* 溢出部分隐藏，防止出现第二个滚动条 */
+	z-index:-1;			/* 设置元素堆叠顺序为最底层，为了不让它遮住下拉菜单的垂直列表项 */	
+	width:100%;			/* 设置宽度 */
+	/* 因为不是所有浏览器都支持CSS3中的calc()方法，所以这里写了三条去设置高度 */
+	height:-webkit-calc(100% - 50px);
+	height:-moz-calc(100% - 50px);
+	height:calc(100% - 50px);
+}
+
+/* 设置顶部<div>区域中的<ul>样式 */
+.topMenu ul{	
+	margin:0px;		/* 去除外边距，使其能够紧贴<div>边缘 */
+	padding:0px;	/* 去除内边距，使其能够紧贴<div>边缘 */
+	list-style-type:none;  /* 去除无序列表的标识符 */
+}
+
+
+/* 设置header区域中的水平列表的<li>标签的样式 */
+ #subml {
+	float:left;	/* 设置左浮动，让它列表项的方向变成水平方向 */
+	background-color:#747070;	/* 设置背景颜色 */
+	text-align:center;	/* 设置水平对齐方式为居中 */
+	width:150px;	/* 设置固定宽度 */
+
+}
+
+
+/* 设置header区域中的<a>标签的初始样式 */
+a {
+	display:block;			/* 转换为块级元素，为了让点击范围能够扩充到整个<li>区域 */
+	line-height:50px; 		/* 设置内边距让文字垂直居中。如果想要增加顶部横向导航栏的高度设置这个 */
+	color:#FFFFFF;			/* 修改文字初始颜色 */
+	text-decoration:none;	/* 去除<a>标签的下划线 */
+}
+
+/* 隐藏所有二级菜单 */
+ul.dropdown-content {
+	display:none;
+}
+
+/* 当鼠标放置在有下拉列表的<li>对象上时 */
+li.dropdown:hover ul {
+	display:list-item;	/* 转换为列表元素，让其恢复显示 */
+}
+
+/* 修改<div class="header">中，鼠标放在<li>标签上时的样式
+ * 我们设置<li>的标签背景颜色是因为本例的二级标签文字对齐方式是左对齐，我们
+ * 是用设置内边距的方式使它不紧贴边缘，这样会导致出现一段空隙，<a>标签就不是
+ * 完全覆盖<li>标签了。
+ */
+div.topMenu #subml:hover {
+	background-color:#000000;
+}
+
+/* 当<li>标签处于激活时<li>的<a>子标签的样式 */
+#subml:hover>a{
+	color:#FFFFFF;
+}
+
+/* 设置二级菜单的<li>标签样式 */
+ul.dropdown-content #subml {
+	border-right:transparent;	/* 去除在一级菜单中设置的用于分隔标签的边框 */
+	width:180px;		/* 设置指定宽度，保证所有选项宽度一致 */
+	text-align:left;	/* 下拉列表的文字对齐方式为左对齐，不使用横向列表的居中属性 */
+	padding-left:5px;	/* 设置左侧内边距偏移，不让它紧贴边缘 */
+}
+
+/* 给每一个垂直列表的第一个列表项加上一个蓝色的顶部边框 */
+.dropdown #subml {
+	border-top:solid 1px white;
+}
+
+
+/* 修改<div class="header">中，鼠标放在"百度"的<li>标签上时的样式 */
+div.topMenu #subml#baiDu:hover {
+	background-color:#E30000;
+}
+
+/* 该属性会在设置当<li>标签处于激活时<li>的<a>子标签的样式 */
+#subml#baiDu:hover a {
+	/* 为了看得清改变背景后的子，单独设置颜色 */
+	color:#FFFFFF;	
+}
+    </style>
+    
+    <script src="Js/jquery-1.10.2.js"></script>
+    <script src="Js/jquery.min.js"></script>
+</head>
+<body>
+<div class="topMenu" style="font-size: 18px;background:#747070;min-width:1300px;">
+        <div  style="padding:0;margin-left:0px;min-width:1300px;background-color:#747070;">
+            <div class="navbar-header" style="background-color:#747070;margin-left:0px;min-width:420px;padding:0;float:left">                
+                <a class="navbar-brand">
+                    <img src="static/img/research.png" alt="Biomedical Informatics Institute" width="50" style="margin-top: -15px;" />
+                </a>
+                <div style="color:white;line-height:50px;font-size:20px;"><nobr>Biomedical Informatics Institute</nobr></div>
+            </div>
+            <div style="min-width:780px;float:left">
+                 <div style="min-width:780px;margin:auto;font-size:22px;background-color:#747070;padding-left:50px;">
+                 	<ul style="float: left;" >
+						<li class="dropdown" style="width: 90px;" id="subml">
+							<a class="colorNavulli" href="Index.html">Home</a>
+						</li>
+						<li class="dropdown" style="width: 105px;" id="subml">
+							<a class="colorNavulli" href="members.html" >Member</a>
+						</li>
+						<!-- 二级菜单:哔哩哔哩动画 -->
+						<li class="dropdown" style="width:100px;" id="subml">
+							<a class="colorNavulli">Tools</a>
+							<ul class="dropdown-content" style="position:absolute;">
+								<li style="width:100px;" id="subml">
+									<a href="DatabaseList.jsp" style="text-decoration:none;margin-left:10px;">LOGpc</a>
+								</li>
+							</ul>
+						</li>
+						<!-- 右浮动的一级菜单选项:百度 -->
+						<li style="width: 130px" id="subml">
+							<a class="colorNavulli" href="results.html" style="font-family:微软雅黑;" >Publication</a>
+						</li>
+						<li style="width: 90px;" id="subml">
+							<a class="colorNavulli" href="NewsList.html" >News</a>     
+						</li>
+					</ul>                 
+            	 </div>
+            </div>
+        </div>
+    </div> 
+<div class="box">
+   <ul class="event_year">
+        <li><a href="#"><h3><strong>Publication</strong></h3></a></li>
+        <li style="font-size:18px" class="current"><label for="2021">2021</label></li>
+        <li style="font-size:18px"><label for="2020">2020</label></li>
+        <li style="font-size:18px"><label for="2019">2019</label></li>
+		<li style="font-size:18px"><label for="2018">2018</label></li>		
+		<li style="font-size:18px"><label for="2017">2017</label></li>
+		<li style="font-size:18px"><label for="2016">2016</label></li>
+		<li style="font-size:18px"><label for="2015">2015</label></li>
+		<li style="font-size:18px"><label for="2014">2014</label></li>
+		<li style="font-size:18px"><label for="2013">2013</label></li>
+		<li style="font-size:18px"><label for="2012">2012</label></li>
+		<li style="font-size:18px"><label for="2011">2011</label></li>
+		<li style="font-size:18px"><label for="2010">2010</label></li>
+		<li style="font-size:18px"><label for="2009">2009</label></li>
+	</ul>
+            <ul class="event_list">   
+            	<div>
+            		<h3 id="2021" style="text-align: left;">2021</h3>
+            		<li>
+                    	<p><span>
+ 	            		    Xie L, Guo X. Comment on 'The expression landscape of cachexia-inducing factors in human cancers' by Freire et al.J Cachexia Sarcopenia Muscle. 2021 Jan 13. doi: 10.1002/jcsm.12670. Online ahead of print.
+            			</span></p>
+                    </li>
+            	</div>
+            	<div>
+            	<h3 id="2020" style="text-align: left;">2020</h3>
+            		<li>
+                    	<p><span>
+ 	            		    Cheng G, Li M, Ma X, Nan F, Zhang L, Yan Z, Li H, Zhang G, Han Y, Xie L, Guo X*. Systematic Analysis of microRNA Biomarkers for Diagnosis, Prognosis, and Therapy in Patients With Clear Cell Renal Cell Carcinoma. Front Oncol. 2020 Dec 4;10:543817. doi: 10.3389/fonc.2020.
+            			</span></p>
+                    </li>            		
+            		<li>
+                    	<p><span>
+ 	            		    Li H, Xie L, Wang Q, Dang Y, Sun X, Zhang L, Han Y, Yan Z, Dong H, Zheng H, Li Y, Zhu W, Guo X*. OSmfs: An Online Interactive Tool to Evaluate Prognostic Markers for Myxofibrosarcoma. Genes (Basel). 2020 Dec 19;11(12):E1523. doi: 10.3390/genes11121523.
+            			</span></p>
+                    </li>
+            		<li>
+                    	<p><span>
+ 	            		   Li H#, Xie L#, Chen L#, Zhang L, Han Y, Yan Z, Guo X*. Genomic, epigenomic, and immune subtype analysis of CTSL/B and SARS-CoV-2 receptor ACE2 in pan-cancer. Aging (Albany NY). 2020 Nov 20;12. doi: 10.18632/aging.104147.PMID: 33231569.
+            			</span></p>
+                    </li>
+                    <li>
+                    	<p><span>
+ 	            		  Xie L, Wang L, Zhu W, Zhao J, Guo X*. Editorial: Bioinformatics Tools (and Web Server) for Cancer Biomarker Development. Front Oncol. 2020 Oct 20;10:599085. doi: 10.3389/fonc.2020.599085. 
+            			</span></p>
+                    </li>
+            		<li>
+                    	<p><span>
+ 	            		  An Y, Wang Q, Sun F, Zhang G, Wang F, Zhang L, Li Y, Ren W, Zhu W, Li Y, Ji S, Guo X. OSucs: An Online Prognostic Biomarker Analysis Tool for Uterine Carcinosarcoma. Genes (Basel). 2020 Sep 3;11(9):E1040. doi: 10.3390/genes11091040.
+            			</span></p>
+                    </li>
+            		<li>
+                    	<p><span>
+ 	            		  Qi Y, Jiao Y, Chen P, Kong J, Gu B, Liu K, Feng D, Zhu Y, Ruan H, Lan Z, Liu Q, Mi Y, Guo X, Wang M, Liang G, Lamont R, Wang H, Zhou F, Feng X, Gao S. Porphyromonas gingivalis promotes progression of esophageal squamous cell cancer via TGFβ-dependent Smad/YAP/TAZ signaling. PLoS Biol. 2020 Sep 4;18(9):e3000825. doi: 10.1371/journal.pbio.3000825.
+            			</span></p>
+                    </li>
+                    <li>
+                    	<p><span>
+ 	            		  Wang Q, An Y, Wang F, Zhang G, Zhang L, Dong H, Xin J, Li Y, Ji S, Guo X.  OSchol: an online consensus survival web server for cholangiocarcinoma prognosis analysis. HPB (Oxford). 2020 Sep 1:S1365-182X(20)31124-2. doi: 10.1016/j.hpb.2020.08.011.
+            			</span></p>
+                    </li>
+                    <li>
+                    	<p><span>
+ 	            		  Zhang G, An Y, Zhang L, Xie L, Guo X*. Risk factors for in-hospital mortality in patients with cancer and COVID-19. Lancet Oncol. 2020 Sep;21(9):e407. doi: 10.1016/S1470-2045(20)30390-9. 
+            			</span></p>
+                    </li>
+            		<li>
+                    	<p><span>
+ 	            		  Xie L#, Cai L#, Wang F#, Zhang L, Wang Q, Guo X*.Systematic review of prognostic gene signature in gastric cancer patients. Frontiers in Bioengineering and Biotechnology. 2020 Jul 31;8:805. doi: 10.3389/fbioe.2020.00805. 
+            			</span></p>
+                    </li>
+            		<li>
+                    	<p><span>
+ 	            		  Wu B, Chen X, Wang J, Qing X, Wang Z, Ding X, Xie Z, Niu L, Guo X, Cai T, Guo X, Yang F. Separation and characterization of extracellular vesicles from human plasma by asymmetrical flow field-flow fractionation. Anal Chim Acta. 2020 Aug 29;1127:234-245. doi: 10.1016/j.aca.2020.06.071. Epub 2020 Jul 11.PMID: 328001292
+            			</span></p>
+                    </li>
+                    <li>
+                    	<p><span>
+ 	            		  An Y, Wang Q, Zhang L, Sun F, Zhang G, Dong H, Li Y, Peng Y, Li H, Zhu W, Ji S, Wang Y, Guo X. OSlgg: An Online Prognostic Biomarker Analysis Tool for Low-Grade Glioma. Front Oncol. 2020 Jul 7;10:1097. doi: 10.3389/fonc.2020.01097. eCollection 2020.PMID: 32775301
+            			</span></p>
+                    </li>
+                    <li>
+                    	<p><span>
+ 	            		  Saddozai UAK, Wang F, Cheng Y, Lu Z, Akbar MU, Zhu W, Li Y, Ji X, Guo X. Gene expression profile identifies distinct molecular subtypes and potential therapeutic genes in Merkel cell carcinoma. Transl Oncol. 2020 Aug 6;13(11):100816. doi: 10.1016/j.tranon.2020.100816. Online ahead of print.PMID: 327719
+            			</span></p>
+                    </li>
+                    <li>
+                    	<p><span>
+ 	            		  An Y, Wang Q, Zhang G, Sun F, Zhang L, Li H, Li Y, Peng Y, Zhu W, Ji S, Guo X. OSlihc: An Online Prognostic Biomarker Analysis Tool for Hepatocellular Carcinoma. Front Pharmacol. 2020 Jun 10;11:875. doi: 10.3389/fphar.2020.00875. eCollection 2020.PMID: 32587519
+            			</span></p>
+                    </li>
+                    <li>
+                    	<p><span>
+ 	            		  Yan Z, Wang Q, Lu Z, Sun X, Song P, Dang Y, Xie L, Zhang L, Li Y, Zhu W, Xie T, Ma J, Zhang Y, Guo X. OSluca: An Interactive Web Server to Evaluate Prognostic Biomarkers for Lung Cancer. Front Genet. 2020 May 26;11:420. doi: 10.3389/fgene.2020.00420. eCollection 2020.PMID: 32528519
+            			</span></p>
+                    </li>
+                    <li>
+                    	<p><span>
+ 	            		  Zhang L, Wang Q, Wang L, Xie L, An Y, Zhang G, Zhu W, Li Y, Liu Z, Zhang X, Tang P, Huo X, Guo X. OSskcm: an online survival analysis webserver for skin cutaneous melanoma based on 1085 transcriptomic profiles. Cancer Cell Int. 2020 May 19;20:176. doi: 10.1186/s12935-020-01262-3. eCollection 2020.PMID: 32467670 
+            			</span></p>
+                    </li>
+            		<li>
+                    	<p><span>
+ 	            		  Lv S, Zhang G, Xie L, Yan Z, Wang Q, Li Y, Zhang L, Han Y, Li H, Du Y, Yang Y, Guo X. High TXLNA Expression Predicts Favourable Outcome for Pancreatic Adenocarcinoma Patients. Biomed Res Int. 2020 Feb 25;2020:2585862. doi: 10.1155/2020/2585862. eCollection 2020. PMID: 32185195
+            			</span></p>
+                    </li>
+                    <li>
+                    	<p><span>
+ 	            		  Wang Q, Yan Z, Ge L, Li N, Yang M, Sun X, Xie L, Zhang G, Zhu W, Wang Y, Li Y, Li X, Guo X. OSeac: An Online Survival Analysis Tool for Esophageal Adenocarcinoma. Front Oncol. 2020 Mar 6;10:315. doi: 10.3389/fonc.2020.00315. eCollection 2020. PMID: 32211334
+            			</span></p>
+                    </li>
+            		<li>
+                    	<p><span>
+ 	            		  Dong H, Wang Q, Li N, Lv J, Ge L, Yang M, Zhang G, An Y, Wang F, Xie L, Li Y, Zhu W, Zhang H, Zhang M, Guo X. OSgbm: An Online Consensus Survival Analysis Web Server for Glioblastoma. Front Genet. 2020 Feb 21;10:1378. doi: 10.3389/fgene.2019.01378. eCollection 2019. PMID: 32153627
+            			</span></p>
+                    </li>
+            		<li>
+                    	<p><span>
+ 	            		  Zhu W, Xie L, Han J, Guo X. The Application of Deep Learning in Cancer Prognosis Prediction. Cancers (Basel). 2020 Mar 5;12(3). pii: E603. doi: 10.3390/cancers12030603. Review. PMID: 32150991
+            			</span></p>
+                    </li>
+            		<li>
+                    	<p><span>
+ 	            		  Guo J, Gu Y, Ma X, Zhang L, Li H, Yan Z, Han Y, Xie L, Guo X. Identification of hub genes and pathways in adrenocortical carcinoma by integrated bioinformatic analysis. J Cell Mol Med. 2020 Mar 8. doi: 10.1111/jcmm.15102. [Epub ahead of print] PMID: 32147961
+            			</span></p>
+                    </li>
+            		<li>
+                    	<p><span>
+ 	            		  Xu J, Zhao S, Teng T, Abdalla AE, Zhu W, Xie L, Wang Y, Guo X. Systematic Comparison of Two Animal-to-Human Transmitted Human Coronaviruses: SARS-CoV-2 and SARS-CoV. Viruses. 2020 Feb 22;12(2). pii: E244. doi: 10.3390/v12020244. PMID: 32098422 Free Article Similar articles Select item 320396383.
+            			</span></p>
+                    </li>
+                    <li>
+                    	<p><span>
+              			  Lei J, Wang Y, Guo X, Yan S, Ma D, Wang P, Li B, Du W, Guo R, Kan Q. Low preoperative serum ALB level is independently associated with poor overall survival in endometrial cancer patients. Future Oncol. 2020 Mar;16(8):307-316. doi: 10.2217/fon-2019-0732. Epub 2020 Feb 10. PMID: 32039638 Free Article             			
+            			</span></p>
+                    </li>
+            		<li>
+                    	<p><span>
+            			  Zheng H, Zhang G, Zhang L, Wang Q, Li H, Han Y, Xie L, Yan Z, Li Y, An Y, Dong H, Zhu W, Guo X. Comprehensive Review of Web Servers and Bioinformatics Tools for Cancer Prognosis Analysis. Front Oncol. 2020 Feb 5;10:68. doi: 10.3389/fonc.2020.00068. eCollection 2020. Review. PMID: 32117725 Similar articles Select item 320984222.
+            			</span></p>
+                    </li>            		
+            		<li>
+                    	<p><span>
+                    	  Xie L, Li H, Zhang L, Ma X, Dang Y, Guo J, Liu J, Ge L, Nan F, Dong H, Yan Z, Guo X. Autophagy-related gene P4HB: a novel diagnosis and prognosis marker for kidney renal clear cell carcinoma. Aging (Albany NY). 2020 Jan 30;12. doi: 10.18632/aging.102715. [Epub ahead of print] PMID: 32003756
+                    	</span></p>
+                    </li>
+                    <li>
+                    	<p><span>
+                    	  Dang Y, Guo Y, Ma X, Chao X, Wang F, Cai L, Yan Z, Xie L, Guo X. Systemic analysis of the expression and prognostic significance of PAKs in breast cancer. Genomics. 2020 Jan 24. pii: S0888-7543(19)30588-9. doi: 10.1016/j.ygeno.2020.01.016. [Epub ahead of print] PMID: 31987914
+                    	</span></p>
+                    </li>
+            		<li>
+                    	<p><span>
+                    	  Dong H, Wang Q, Zhang G, et al. OSdlbcl: An online consensus survival analysis web server based on gene expression profiles of diffuse large B-cell lymphoma. Cancer Med. 2020;9:1790–1797. https://doi.org/10.1002/cam4.2829
+                    	</span></p>
+                    </li>
+            		<li>
+                    	<p><span>
+                    	 Zhang G, Wang Q, Yang M, Yao X, Qi X, An Y, Dong H, Zhang L, Zhu W, Li Y, Guo X. OSpaad: An online tool to perform survival analysis by integrating gene expression profiling and long-term follow-up data of 1319 pancreatic carcinoma patients. Mol Carcinog. 2020 Jan 8. doi: 10.1002/mc.23154.
+                    	</span></p>
+                    </li>
+                </div>
+            	<div>
+            	<h3 id="2019" style="text-align: left;">2019</h3> 
+            			<li>
+                    		<p><span>
+                    		 Yan Z, Wang Q, Sun X, Ban B, Lu Z, Dang Y, Xie L, Zhang L, Li Y, Zhu W and Guo X. OSbrca: A Web Server for Breast Cancer Prognostic Biomarker Investigation With Massive Data From Tens of Cohorts. Front Oncol, 9, 1349 2019 Dec 20 eCollection 2019. doi: 10.3389/fonc.2019.01349
+                    		</span></p>
+                    	</li>
+						<li>
+                    		<p><span>
+                    		 Xie L, Wang Q, Nan F, Ge L, Dang Y, Sun X, Li N, Dong H, Han Y, Zhang G, Zhu W, Guo X. OSacc: Gene Expression-Based Survival Analysis Web Tool For Adrenocortical Carcinoma. Cancer Manag Res. 2019 Oct 24;11:9145-9152. doi: 10.2147/CMAR.S215586. eCollection 2019. PMID: 31749633 
+                    		</span></p>
+                    	</li> 
+            			<li>
+                    		<p><span>
+                    		 Bing Z, Yao Y, Xiong J, Tian J, Guo X, Li X, Zhang J, Shi X, Zhang Y, Yang K. Novel Model for Comprehensive Assessment of Robust Prognostic Gene Signature in Ovarian Cancer Across Different Independent Datasets. Front Genet. 2019 Oct 11;10:931. doi: 10.3389/fgene.2019.00931. eCollection 2019. PMID: 31681404
+                    		</span></p>
+                    	</li> 
+            			<li>
+                    		<p><span>
+                    		 Wang F, Wang Q, Li N, Ge L, Yang M, An Y, Zhang G, Dong H, Ji S, Zhu W, Guo X. OSuvm: An interactive online consensus survival tool for uveal melanoma prognosis analysis. Mol Carcinog. 2019 Oct 23. doi: 10.1002/mc.23128. PMID: 31646691
+                    		</span></p>
+                    	</li>           	
+            			<li>
+                    		<p><span>
+                    		 Wang Q, Zhang L, Yan Z, Xie L, An Y, Li H, Han Y, Zhang G, Dong H, Zheng H, Zhu W, Li Y, Wang Y, Guo X. OScc: an online survival analysis web server to evaluate the prognostic value of biomarkers in cervical cancer. Future Oncol. 2019 Sep 12. doi: 10.2217/fon-2019-0412. PMID: 31512935
+                    		</span></p>
+                    	</li>
+                    	<li>
+                    		<p><span>
+                    		 Yang Y, Lv S, Wang F, An Y, Fang N, Zhang W, Zhao W, Guo X, Ji S. Toxicity and serum metabolomics investigation of Mn-doped ZnS quantum dots in mice. Int J Nanomedicine. 2019 Aug 6;14:6297-6311. doi: 10.2147/IJN.S212355. eCollection 2019. PMID: 31496687 Free PMC Article
+                    		</span></p>
+                    	</li>
+            			<li>
+                    		<p><span>
+                    		 Xie L, Wang Q, Dang Y, Ge L, Sun X, Li N, Han Y, Yan Z, Zhang L, Li Y, Zhang H, Guo X. OSkirc: a web tool for identifying prognostic biomarkers in kidney renal clear cell carcinoma. Future Oncol. 2019 Aug 1. doi: 10.2217/fon-2019-0296. PMID: 31368353
+                    		</span></p>
+                    	</li>
+                    	<li>
+                    		<p><span>
+                    		 Wang Q, Wang F, Lv J, Xin J, Xie L, Zhu W, Tang Y, Li Y, Zhao X, Wang Y, Li X, Guo X. Interactive online consensus survival tool for esophageal squamous cell carcinoma prognosis analysis. Oncol Lett. 2019 Aug;18(2):1199-1206. doi: 10.3892/ol.2019.10440. Epub 2019 Jun 5. PMID: 31423180
+                    		</span></p>
+                    	</li>
+            			<li>
+                    		<p><span>
+                    		 Zhang H, Zhang BM, Guo X, Xu L, You X, West RB, Bussel JB, Zehnder JL. Blood transcriptome and clonal T cell correlates of response and nonresponse to eltrombopag therapy in a cohort of patients with chronic immune thrombocytopenia. Haematologica. 2019 Jul 11. pii: haematol.2019.226688. doi: 10.3324/haematol.2019.226688. PMID: 31296576
+                    		</span></p>
+                    	</li>
+            			<li>
+                    		<p><span>
+                    		 Zhang G, Wang Q, Yang M, Yuan Q, Dang Y, Sun X, An Y, Dong H, Xie L, Zhu W, Wang Y, Guo X. OSblca: A Web Server for Investigating Prognostic Biomarkers of Bladder Cancer Patients. Front Oncol. 2019 Jun 4;9:466. doi: 10.3389/fonc.2019.00466. eCollection 2019.
+                    		</span></p>
+                    	</li> 
+            	    	<li>
+                    		<p><span>
+                    		 Zhu Y, Wang J, Wang F, Yan Z, Liu G, Ma Y, Zhu W, Li Y, Xie L, Bazhin AV, Guo X. Differential MicroRNA Expression Profiles as Potential Biomarkers for Pancreatic Ductal Adenocarcinoma. Biochemistry (Mosc). 2019 May;84(5):575-582. doi: 10.1134/S0006297919050122. PMID: 31234772
+                    		</span></p>
+                    	</li>		
+            			<li>
+                    		<p><span>
+                    		Wang F, Yan Z, Lv J, Xin J, Dang Y, Sun X, An Y, Qi Y, Jiang Q, Zhu W, Li Y, Li A, Guo X. Gene Expression Profiling Reveals Distinct Molecular Subtypes of Esophageal Squamous Cell Carcinoma in Asian Populations. Neoplasia. 2019 Apr 29;21(6):571-581. doi: 10.1016/j.neo.2019.03.013. 
+                    		</span></p>
+                    	</li>
+            			<li>
+                    		<p><span>
+                    		Wang Q, Xie L, Dang Y, Sun X, Xie T, Guo J, Han Y, Yan Z, Zhu W, Wang Y, Li W, Guo X. OSlms: A Web Server to Evaluate the Prognostic Value of Genes in Leiomyosarcoma. Front Oncol. 2019 Mar 29;9:190. doi: 10.3389/fonc.2019.00190. eCollection 2019. PMID: 30984618 
+                    		</span></p>
+                    	</li>
+            			<li>
+                    		<p><span>
+                    		Xie L, Dang Y, Guo J, Sun X, Xie T, Zhang L, Yan Z, Amin H, Guo X. High KRT8 Expression Independently Predicts Poor Prognosis for Lung Adenocarcinoma Patients. Genes (Basel). 2019 Jan 10;10(1). pii: E36. doi: 10.3390/genes10010036. 
+                    		</span></p>
+                    	</li>
+                 </div>
+            	<div>
+            	<h3 id="2018" style="text-align: left;">2018</h3>
+            			<li>
+                    		<p><span>
+                    		Fang N, Zhong N, Gu T, Wang Y, Guo X, Ji S. A quantitative method for measuring the transfection efficiency of CD19-directed chimeric antigen receptor in target cells. Adv Clin Exp Med. 2018 Dec 5. doi: 10.17219/acem/90772. 
+                    		</span></p>
+                    	</li>
+            			<li>
+                    		<p><span>
+                    		Li Y, Lv J, Wan S, Xin J, Xie T, Li T, Zhu W, Zhang G, Wang Y, Tang Y, Li A, Guo X. High Sensitive and Non-invasive ctDNAs Sequencing Facilitate Clinical Diagnosis And Clinical Guidance of Non-small Cell Lung Cancer Patient: A Time Course Study. Front Oncol. 2018 Oct 30;8:491. doi: 10.3389/fonc.2018.00491. eCollection 2018. PMID: 30425968 Free Article.
+                    		</span></p>
+                    	</li>
+            			<li>
+                    		<p><span>
+                    		Guo X, Tang Y, Zhu W. Distinct esophageal adenocarcinoma molecular subtype has subtype-specific gene expression and mutation patterns. BMC Genomics. 2018 Oct 24;19(1):769. doi: 10.1186/s12864-018-5165-0. PMID: 30355311 Free Article.
+                    		</span></p>
+                    	</li>
+                    	<li>
+                    		<p><span>
+                    		Yang J, Li A, Li Y, Guo X, Wang M. A novel approach for drug response prediction in cancer cell lines via network representation learning. Bioinformatics. 2018 Oct 10. doi: 10.1093/bioinformatics/bty848.
+                    		</span></p>
+                    	</li>
+                    	<li>
+                    		<p><span>
+                    		Wang HJ, Zhang HL, Yao L, Cui LZ, Zhang L, Gao B, Liu W, Wu DD, Chen ML, Li X, Ji AL, Li YZ*. Serum metabolic profiling of type 2 diabetes mellitus in Chinese adults using an untargeted GC/TOFMS. Clinica Chimica Acta, 2018,477:39-47.
+                    		</span></p>
+                    	</li>
+                 </div>
+                 <div>
+                 <h3 id="2017" style="text-align: left;">2017</h3>
+                 <li>                            
+                            <p><span>Li P, Gu Y, Li J, Xie L, Li X, Xie J. Mycobacterium tuberculosis Major
+Facilitator Superfamily Transporters. J Membr Biol. 2017 Dec;250(6):573-585.</span></p>
+                        </li>
+                        <li>
+                        	<p><span>
+                        	An Y, Wang S, Li S, Zhang L, Wang D, Wang H, Zhu S, Zhu W, Li Y, Chen W, Ji S, Guo X. Distinct molecular subtypes of uterine leiomyosarcoma respond differently to chemotherapy treatment. BMC Cancer. 2017 Sep 11;17(1):639.
+                        	</span></p>
+                        </li>
+                        <li>
+                            <p><span>Li Q, Li C, Xie L, Zhang C, Feng Y, Xie J. Characterization of a putative ArsR
+transcriptional regulator encoded by Rv2642 from Mycobacterium tuberculosis. J Biomol Struct Dyn. 2017 Jul;35(9):2031-2039.</span></p>
+                        </li>
+                        <li>
+                    		<p><span>
+                    		Fang, N., T. Gu, Y. Wang, S. Wang, F. Wang, Y. An, W. Wei, W. Zhang, X. Guo, A. Nazarali, S. Ji. Expression of PTEN-long mediated by CRISPR/Cas9 can repress U87 cell proliferation. Journal of Cellular and Molecular Medicine. 2017 Jun 19. 
+                    		</span></p>
+                    	</li>
+                    	<li>
+                    		<p><span>
+                    		Peng, L., P. Wang, L. Li, C. Xu, J. Liu, X. Guo, D. He, H. Huang, Z. Cheng. Exomic and Epigenomic Analyses of Monozygotic Twins Discordant for Cryptorchidism. Twin Research and Human Genetics. 2017 Jun 13:1-6.
+                    		</span></p>
+                    	</li>
+                        <li>
+                            <p><span>Li P, Xie L, Gu Y, Li J, Xie J. Roles of Multifunctional COP9 Signalosome
+Complex in Cell Fate and Implications for Drug Discovery. J Cell Physiol. 2017 Jun;232(6):1246-1253.</span></p>
+                        </li>
+                        <li>
+                        	<p><span>Bisphenol A Removal by Submerged Macrophytes and the Contribution of Epiphytic Microorganisms to the Removal Process
+Zhang G, Wang Y, Jiang J, Yang S.
+Bull Environ Contam Toxicol. 2017 Jun;98(6):770-775.</span></p>
+                        </li>
+                        <li>
+                    		<p><span>
+                    		Wei, W., X. Ji, X. Guo, S. Ji. Regulatory role of N6-methyladenosine (m6A) methylation in RNA processing and human diseases. Journal of Cellular Biochemistry. 2017 Mar 3. 
+                    		</span></p>
+                    	</li>                        
+                        <li>
+                            <p><span>Ren S, Li Q, Xie L, Xie J. Molecular Mechanisms Underlying the Function
+Diversity of ArsR Family Metalloregulator. Crit Rev Eukaryot Gene Expr.2017;27(1):19-35.</span></p>
+                        </li>
+                    	<li>
+                    		<p><span>
+                    		Yang An, Kendra L. Furber, Shaoping Ji*, Pseudogenes regulate parental gene expression via ceRNA network, Journal of Cellular and Molecular Medicine, 2017, 21(1): 185–192
+                    		</span></p>
+                    	</li>
+                    	<li>
+                    		<p><span>
+                    		Na Fang, Tingxuan Gu, Yahui Wang, Shuzhen Wang, Fengling Wang, Yang An, Wenqiang Wei, Weijuan Zhang, Xiangqian Guo, Adil J Nazarali, Shaoping Ji*, Expression of PTEN-long mediated by CRISPR/Cas9 can repress U87 cell proliferation, Journal of Cellular and Molecular Medicine, 2017, 21(12): 3337-3346
+                    		</span></p>
+                    	</li>                    	
+                    	<li>
+                    		<p><span>
+                    		Yang An, Haojie Wang, Jingyao Jie, Yitai Tang, Weijuan Zhang, Shaoping Ji*, Xiangqian Guo*, Identification of distinct molecular subtypes of uterine carcinosarcoma, Oncotarget, 2017, 8(9): 15878–15886
+                    		</span></p>
+                    	</li>
+                        <li>
+                            <p><span>Xie L, Li J, Deng W, Yu Z, Fang W, Chen M, Liao W, Xie J, Pan W. Proteomic
+analysis of lysine succinylation of the human pathogen Histoplasma capsulatum. J Proteomics. 2017 Feb 10;154:109-117.</span></p>
+                        </li>
+                 </div>
+                 <div>
+                 <h3 id="2016" style="text-align: left;">2016</h3>
+                 <li>
+                            <p><span>Yan S, Xu M, Duan X, Yu Z, Li Q, Xie L, Fan X, Xie J. Mycobacteriophage
+putative GTPase-activating protein can potentiate antibiotics. Appl Microbiol Biotechnol. 2016 Sep;100(18):8169-77.</span></p>
+                        </li>
+                        <li>
+                            <p><span>Zeng J, Deng W, Yang W, Luo H, Duan X, Xie L, Li P, Wang R, Fu T, Abdalla AE, 
+Xie J. Mycobacterium tuberculosis Rv1152 is a Novel GntR Family Transcriptional
+Regulator Involved in Intrinsic Vancomycin Resistance and is a Potential
+Vancomycin Adjuvant Target. Sci Rep. 2016 Jun 28;6:28002.</span></p>
+                        </li>                        
+                    	<li>
+                    		<p><span>
+                    		Wang HJ, Zhang HL, Deng PC, Liu CQ, Li DD, Jie H, Zhang H, Zhou ZG, Zhao YL*. Tissue metabolic profiling of human gastric cancer assessed by 1H NMR. BMC Cancer,2016 Jun 29;16:371
+                    		</span></p>
+                    	</li>
+                    	<li>
+                    		<p><span>
+                    		Zhang HL, Qiao L, Li XP, Wan Y, Yang L, Wang HJ*. Tissue metabolic proling of lymph node metastasis of colorectal cancer assessed by 1H NMR. Oncology Reports,2016,36:3436-3448.
+                    		</span></p>
+                    	</li>
+                        <li>
+                            <p><span>Xie L, Wang G, Yu Z, Zhou M, Li Q, Huang H, Xie J. Proteome-wide Lysine
+Glutarylation Profiling of the Mycobacterium tuberculosis H37Rv. J Proteome Res.2016 Apr 1;15(4):1379-85.</span></p>
+                        </li>
+                        <li>
+                            <p><span>Xie L, Fang W, Deng W, Yu Z, Li J, Chen M, Liao W, Xie J, Pan W. Global
+profiling of lysine acetylation in human histoplasmosis pathogen Histoplasma
+capsulatum. Int J Biochem Cell Biol. 2016 Apr;73:1-10.</span></p>
+                        </li>
+                    	<li>
+                    		<p><span>
+                    		Dalerba P.,D.Sahoo, S. Paik, X. Guo, G. Yothers, N. Song, N. Wilcox-Fogel, E. Forgó, P.S. Rajendran, S.P. Miranda, S. Hisamori, J. Hutchison, T. Kalisky, D. Qian, N. Wolmark, G.A. Fisher, M. van de Rijn, M.F. Clarke, CDX2 as a Prognostic Biomarker in Stage II and Stage III Colon Cancer. New England Journal of Medicine, 2016. 
+                    		</span></p>
+                    	</li>
+                    	<li>
+                    		<p><span>
+                    		Gao S., R. Liu, Zhao, Y., P. Wang, D.G. Ward, G. Wang, X. Guo, G. Gu, W. Niu, T. Zhang, A. Martin, Z. Guo, X. Feng, Y Qi, Y. Ma, Integrative topological analysis of mass spectrometry data reveals molecular features with clinical relevance in esophageal squamous cell carcinoma. Sci Rep., 2016.22(6):21586.
+                    		</span></p>
+                    	</li>
+                    	<li>
+                    		<p><span>
+                    		Guo, X., S. Su, G. Skogerboe, W. Li, Z. Li, S. Zhang, S. Chen, R. Chen. Differential expression of miRNAs related to caste differentiation in the honey bee, Apis mellifera. Apidologie, 2016. 47：495-508. 
+                    		</span></p>
+                    	</li>
+                        <li>
+                            <p><span>Luo H, Zeng J, Huang Q, Liu M, Abdalla AE, Xie L, Wang H, Xie J.
+Mycobacterium tuberculosis Rv1265 promotes mycobacterial intracellular survival
+and alters cytokine profile of the infected macrophage. J Biomol Struct Dyn.
+2016;34(3):585-99.</span></p>
+                        </li>
+                        <li>
+                            <p><span>Wang H, Xie L, Luo H, Xie J. Bacterial cytoskeleton and implications for new 
+antibiotic targets. J Drug Target. 2016;24(5):392-8.</span></p>
+                        </li>
+                        <li>
+                        	<p><span>Fengling Wang, Adil J Nazarali, Shaoping Ji*, Circular RNAs as potential biomarkers for cancer diagnosis and therapy, Am J Cancer Res, 2016，6(6):1167-1176.</span></p>
+                        </li>
+                 </div>
+                 <div>
+                 <h3 id="2015" style="text-align: left;">2015</h3>
+                 <li>
+                            <p><span>Luo H, Xie L, Zeng J, Xie J. Biosynthesis and Regulation of Bioprotective
+Alkaloids in the Gramineae Endophytic Fungi with Implications for Herbivores
+Deterrents. Curr Microbiol. 2015 Dec;71(6):719-24.</span></p>
+                        </li>
+                        <li>
+                            <p><span>Li W, Fan X, Long Q, Xie L, Xie J. Mycobacterium tuberculosis effectors
+involved in host-pathogen interaction revealed by a multiple scales integrative
+pipeline. Infect Genet Evol. 2015 Jun;32:1-11.</span></p>
+                        </li>
+                        <li>
+                            <p><span>Fan X, Yan J, Xie L, Zeng L, Young RF 3rd, Xie J. Genomic and proteomic
+features of mycobacteriophage SWU1 isolated from China soil. Gene. 2015 Apr
+25;561(1):45-53.</span></p>
+                        </li>                        
+                    	<li>
+                    		<p><span>
+                    		Guo, X., V.Y. Jo, A. Mills, S. Zhu, C.H. Lee, I. Espinosa, M.R. Nucci, S. Varma, E. Forgo, T. Hastie, S. Anderson, K. Ganjoo, A.H. Beck, R. West, C. Fletcher, and M. van de Rijn, Clinically relevant molecular subtypes in leiomyosarcoma. Clin Cancer Res, 2015. 21(15): p.3501-11. 
+                    		</span></p>
+                    	</li>
+                    	<li>
+                    		<p><span>
+                    		Guo, X., E. Forgo and M. van de Rijn, Molecular subtyping of leiomyosarcoma with 3' end RNA sequencing. Genomics Data, 2015. 5: 366-367. 
+                    		</span></p>
+                    	</li>
+                    	<li>
+                    		<p><span>
+                    		Demicco, E.G., G.M. Boland, K.J. Brewer Savannah, K. Lusby, E.D. Young, D. Ingram, K.L. Watson, M. Bailey, X. Guo, J.L. Hornick, M. van de Rijn, W.L. Wang, K.E. Torres, D. Lev, and A.J. Lazar, Progressive Loss Of Myogenic Differentiation In Leiomyosarcoma Has Prognostic Value. Histopathology, 2015. 66(5):627-38. 
+                    		</span></p>
+                    	</li>
+                        <li>
+                            <p><span>Zeng J, Xie L, Luo H, Xie J. The Epigenetic Modifications of Genes Associated
+with Tuberculosis Susceptibility and Implications for Epi-Drugs. Crit Rev
+Eukaryot Gene Expr. 2015;25(4):349-62.</span></p>
+                        </li>
+                        <li>
+                            <p><span>Wang R, Zhang Z, Xie L, Xie J. Implications of Mycobacterium Major
+Facilitator Superfamily for Novel Measures against Tuberculosis. Crit Rev
+Eukaryot Gene Expr. 2015;25(4):315-21.</span></p>
+                        </li>
+                        <li>
+                            <p><span>Xu M, Xie L, Yu Z, Xie J. Roles of Protein N-Myristoylation and Translational
+Medicine Applications. Crit Rev Eukaryot Gene Expr. 2015;25(3):259-68.</span></p>
+                        </li>
+                        <li>
+                            <p><span>Li Q, Xie L, Long Q, Mao J, Li H, Zhou M, Xie J. Proteasome Accessory Factor 
+C (pafC) Is a novel gene Involved in Mycobacterium Intrinsic Resistance to
+broad-spectrum antibiotics--Fluoroquinolones. Sci Rep. 2015 Jul 3;5:11910.</span></p>
+                        </li>
+                        <li>
+                            <p><span>Li H, Li Q, Li W, Xie L, Zhou M, Xie J. The Role of PARP-1 in Host-Pathogen
+Interaction and Cellular Stress Responses. Crit Rev Eukaryot Gene Expr.
+2015;25(2):175-90.</span></p>
+                        </li>
+                    	<li>
+                    		<p><span>
+                    		Yamei Hu, Yang An, Na Fang, Yanzhang Li, Haiying Jin, Adil Nazarali*, Shaoping Ji*, The Optimization of Soluble PTEN Expression in Escherichia coli, The Open Biochemistry Journal, 2015, 9: 42-48
+                    		</span></p>
+                    	</li>
+                        <li>
+                            <p><span>Xie L, Wang X, Zeng J, Zhou M, Duan X, Li Q, Zhang Z, Luo H, Pang L, Li W,
+Liao G, Yu X, Li Y, Huang H, Xie J. Proteome-wide lysine acetylation profiling of
+the human pathogen Mycobacterium tuberculosis. Int J Biochem Cell Biol. 2015
+Feb;59:193-202.</span></p>
+                        </li>
+                        <li>
+                            <p><span>Abdalla AE, Li Q, Xie L, Xie J. Biology of IL-27 and its role in the host
+immunity against Mycobacterium tuberculosis. Int J Biol Sci. 2015 Jan
+5;11(2):168-75.</span></p>
+                        </li>
+                        <li>
+                            <p><span>Xie L, Liu W, Li Q, Chen S, Xu M, Huang Q, Zeng J, Zhou M, Xie J. First
+succinyl-proteome profiling of extensively drug-resistant Mycobacterium
+tuberculosis revealed involvement of succinylation in cellular physiology. J
+Proteome Res. 2015 Jan 2;14(1):107-19.</span></p>
+                        </li>
+                 </div>
+                 <div>
+                 <h3 id="2014" style="text-align: left;">2014</h3>
+                 <li>
+                        	<p><span>
+                        	Wang, Y., A. Marino-Enriquez, R.R. Bennett, M. Zhu, Y. Shen, G. Eilers, J.C. Lee, J. Henze, B.S. Fletcher, Z. Gu, E.A. Fox, C.R. Antonescu, C.D. Fletcher, X. Guo, C.P. Raut, G.D. Demetri, M. van de Rijn, T. Ordog, L.M. Kunkel, and J.A. Fletcher, Dystrophin is a tumor suppressor in human cancers with myogenic programs. Nat Genet, 2014. 46(6): p. 601-6.
+                        	</span></p>
+                        </li>                        
+                        <li>
+                        	<p><span>
+                        	Brunner, A.L.*, J. Li*, X. Guo, R.T. Sweeney, S. Varma, S.X. Zhu, R. Li, R. Tibshirani, and R.B. West, A shared transcriptional program in early breast neoplasias despite genetic and clinical distinctions. Genome Biol, 2014. 15(5): p. R71. 
+                        	</span></p>
+                        </li>                        
+                        <li>
+                        	<p><span>
+                        	van de Rijn, M., X. Guo, R.T. Sweeney, A.H. Beck, and R.B. West, Molecular Pathological Analysis of Sarcomas Using Paraffin-Embedded Tissue: Current Limitations and Future Possibilities. Histopathology, 2014. 64(1): 163-70.
+                        	</span></p>
+                        </li>
+                        <li>
+                            <p><span>Liao G, Xie L, Li X, Cheng Z, Xie J. Unexpected extensive lysine acetylation 
+in the trump-card antibiotic producer Streptomyces roseosporus revealed by
+proteome-wide profiling. J Proteomics. 2014 Jun 25;106:260-9.</span></p>
+                        </li>
+                        <li>
+                            <p><span>Fan X, Xie L, Li W, Xie J. Prophage-like elements present in Mycobacterium
+genomes. BMC Genomics. 2014 Mar 27;15:243.</span></p>
+                        </li>
+                        <li>
+                            <p><span>Xie L, Zeng J, Luo H, Pan W, Xie J. The roles of bacterial GCN5-related
+N-acetyltransferases. Crit Rev Eukaryot Gene Expr. 2014;24(1):77-87.</span></p>
+                        </li>
+                 </div>
+                 <div>
+                 <h3 id="2013" style="text-align: left;">2013</h3>
+                 <li>
+                    		<p><span>Fengling Wang#, Zhitong Bing#, Yanan Zhang, Bin Ao, Sheng Zhang, Caiyong Ye, Jinpeng He, Nan Ding, Wenling Ye, Jie Xiong, Jintu Sun, Yoshiya Furusawa, Guangming Zhou*, and Lei Yang*, Quantitative proteomic analysis for radiation- induced cell cycle suspension in 92-1 melanoma cell line, J Radiat Res, 2013, 54(4): 649–662.</a>
+                    	</li>
+                        <li>
+                        	<p><span>
+                        	Guo, X., S.X. Zhu, A.L. Brunner, M. van de Rijn, and R.B. West, Next generation sequencing-based expression profiling identifies signatures from benign stromal proliferations that define stromal components of breast cancer. Breast Cancer Res, 2013. 15(6): p. R117. 
+                        	</span></p>
+                        </li>
+                    	<li>
+                    		<p><span>
+                    		Wang HJ, Wang L, Zhang HL, Deng P, Chen J, Zhou B, Hu J, Zou J, Lu WJ, Xiang P, Wu TM, Shao XN, Li Y, Zhou ZG, Zhao YL*. ¹H NMR-based metabolic profiling of human rectal cancer tissue. Molecular Cancer,2013,12(1):12
+                    		</span></p>
+                    	</li>
+                        <li>
+                        	<p><span>
+                        	Guo, X., S. Su, G. Skogerboe, S. Dai, W. Li, Z. Li, F. Liu, R. Ni, Y. Guo, S. Chen, S. Zhang, and R. Chen, Recipe for a Busy Bee: MicroRNAs in Honey Bee Caste Determination. PLOS ONE, 2013. 8(12): p. e81661.
+                        	</span></p>
+                        </li>
+                        <li>
+                        	<p><span>
+                        	Newburger, D.E., D. Kashef-Haghighi, Z. Weng, R. Salari, R.T. Sweeney, A.L. Brunner, S.X. Zhu, X. Guo, S. Varma, M.L. Troxell, R.B. West, S. Batzoglou, and A. Sidow, Genome Evolution during Progression to Breast Cancer. Genome Res, 2013. 23(7):1097-108.
+                        	</span></p>
+                        </li>
+                    	<li>
+                    		<p><span>
+                    		Yinhua Huang#, YingRui Li#, David W. Burt#, Hualan Chen, Yong Zhang, Wubin Qian, Heebal Kim, Shangquan Gan, Yiqiang Zhao, Jianwen Li, Kang Yi, Huapeng Feng, Pengyang Zhu, Bo Li, Qiuyue Liu, Suan Fairley, Katharine E. Magor,Zhenlin Du, Xiaoxiang Hu, Laurie Goodman, Hakim Tafer, Alain Vignal, Taeheon Lee, Kyu-Won Kim, Zheya Sheng, Yang An, Steve Searle, Javier Herrero, Martien A.M. Groenen, Richard P.M.A. Crooijmans, Thomas Faraut, Qingle Cai, Robert G. Webster, Jerry R. Aldridge, Wesley C. Warren, Sebastian Bartschat, Stephanie Kehr, Manja Marz, Peter F. Stadler, Jacqueline Smith, Robert H.S. Kraus, Yaofeng Zhao, Liming Ren, Jing Fei, Mireille Morisson, Pete, Kaiser, Darren K. Griffin, Frederique Pitel, Jun Wang*, Ning Li*, The duck genome and transcriptome provide insight into an avian influenza virus reservoir species, Nature Genetics, 2013, 45(7): 776-783
+                    		</span></p>
+                    	</li>
+                        <li>
+                        	<p><span>Li W, He J, Xie L, Chen T, Xie J. Comparative genomic insights into the
+biosynthesis and regulation of mycobacterial siderophores. Cell Physiol Biochem. 
+2013;31(1):1-13.</span></p>
+                        </li>
+                    	<li>
+                    		<p><span>
+                    		Yang An, Qianqian Kang, Yaofeng Zhao, Xiaoxiang Hu*, Ning Li*, Lats2 modulates adipocyte proliferation and differentiation via Hippo signaling, PloS One, 2013, 8(8): e72042
+                    		</span></p>
+                    	</li>
+                 </div>
+                 <div>
+                 <h3 id="2012" style="text-align: left;">2012</h3>
+                 <li>
+                        	<p><span>Xie L, Li W, Xie J. Prokaryotic Nε-lysine acetylomes and implications for new
+antibiotics. J Cell Biochem. 2012 Dec;113(12):3601-9.</span></p>
+                        </li>
+                        <li>
+                        	<p><span>
+                        	Lee, C.H., W.B. Ou, A. Marino-Enriquez, M. Zhu, M. Mayeda, Y. Wang, X. Guo, A.L. Brunner, F. Amant, C.A. French, R.B. West, J.N. McAlpine, C.B. Gilks, M.B. Yaffe, L.M. Prentice, A. McPherson, S.J. Jones, M.A. Marra, S.P. Shah, M. van de Rijn, D.G. Huntsman, P. Dal Cin, M. Debiec-Rychter, M.R. Nucci, and J.A. Fletcher, 14-3-3 fusion oncogenes in high-grade endometrial stromal sarcoma. Proc Natl Acad Sci U S A, 2012. 109(3): p. 929-34.
+                        	</span></p>
+                        </li>
+                        <li>
+                        	<p><span>
+                        	Brunner, A.L., A.H. Beck, B. Edris, R.T. Sweeney, S.X. Zhu, R. Li, K. Montgomery, S. Varma, T. Gilks, X. Guo, J.W. Foley, D.M. Witten, C.P. Giacomini, R.A. Flynn, J.R. Pollack, R. Tibshirani, H.Y. Chang, M. van de Rijn, and R.B. West, Transcriptional profiling of long non-coding RNAs and novel transcribed regions across a diverse panel of archived human cancers. Genome Biol, 2012. 13(8): p. R75. 
+                        	</span></p>
+                        </li>
+                        <li>
+                        	<p><span>
+                        	Li, M.*, S. Wen*, X. Guo, B. Bai, Z. Gong, X. Liu, Y. Wang, Y. Zhou, X. Chen, L. Liu, and R. Chen, The novel long non-coding RNA CRG regulates Drosophila locomotor behavior. Nucleic Acids Res, 2012. 40(22): p. 11714-27. 
+                        	</span></p>
+                        </li>
+                        <li>
+                        	<p><span>
+                        	Lee, C.H., R.H. Ali, M. Rouzbahman, A. Marino-Enriquez, M. Zhu, X. Guo, A.L. Brunner, S. Chiang, S. Leung, N. Nelnyk, D.G. Huntsman, C. Blake Gilks, T.O. Nielsen, P. Dal Cin, M. van de Rijn, E. Oliva, J.A. Fletcher, and M.R. Nucci, Cyclin D1 as a diagnostic immunomarker for endometrial stromal sarcoma with YWHAE-FAM22 rearrangement. Am J Surg Pathol, 2012. 36(10): p. 1562-70. 
+                        	</span></p>
+                        </li>
+                        <li>
+                        	<p><span>
+                        	Wan, L.C.*, F. Wang*, X. Guo, S. Lu, Z. Qiu, Y. Zhao, H. Zhang, and J. Lin, Identification and characterization of small non-coding RNAs from Chinese fir by high throughput sequencing. BMC Plant Biol, 2012. 12: p. 146.
+                        	</span></p>
+                        </li>
+                 </div>
+                 <div>
+                 <h3 id="2011" style="text-align: left;">2011</h3>
+                 <li>
+                    		<p><span>
+                    		Weimin Ruan, Jianyong Han, Li Pin, Suying Cao, Yang An, Bing Lim, Ning Li*, A novel strategy to derive iPS cells from pig fibroblasts, Science China Life Sciences, 2011, 54(6): 553-559
+                    		</span></p>
+                    	</li>
+                        <li>
+                        	<p><span>
+                        	Li, D., Y. Wang, K. Zhang, Z. Jiao, X. Zhu, G. Skogerboe, X. Guo, V. Chinnusamy, L. Bi, Y. Huang, S. Dong, R. Chen, and Y. Kan, Experimental RNomics and genomic comparative analysis reveal a large group of species-specific small non-message RNAs in the silkworm Bombyx mori. Nucleic Acids Res, 2011. 39(9): p. 3792-805. 
+                        	</span></p>
+                        </li>
+                  </div>
+                  <div>
+                  <h3 id="2010" style="text-align: left;">2010</h3>
+                  <li>
+                        	<p><span>
+                        	Huang, W., X. Guo, J. Dai, and R. Chen, MicroRNA and lncRNA in Neurodegenerative Diseases. Progress in Biochemistry and Biophysics, 2010. 37(8): p. 8. 
+                        	</span></p>
+                        </li>
+                  </div>
+                  <div>
+                  <h3 id="2009" style="text-align: left;">2009</h3>
+                  <li>
+                        	<p><span>
+                        	Shi, B*., X. Guo*, T. Wu*, S. Sheng, J. Wang, G. Skogerbo, X. Zhu, and R. Chen, Genome-scale identification of Caenorhabditis elegans regulatory elements by tiling-array mapping of DNase I hypersensitive sites. BMC Genomics, 2009. 10: p. 92. 
+                        	</span></p>
+                        </li>
+                        <li>
+                        	<p><span>
+           					Tan, Y., B. Zhang, T. Wu, G. Skogerbo, X. Zhu, X. Guo, S. He, and R. Chen, Transcriptional inhibiton of Hoxd4 expression by miRNA-10a in human breast cancer cells. BMC Mol Biol, 2009. 10: p. 12. 
+                        	</span></p>
+                        </li>
+                  </div>
+              </ul>         
+        </div>
+
+        <footer>
+            <p class="footer">Copyright &copy; 2018 Biomedical Informatics Institute</p>
+        </footer>
+        <script>
+
+$(function(){
+
+	$('label').click(function(){
+
+		$('.event_year>li').removeClass('current');
+
+		$(this).parent('li').addClass('current');
+
+		var year = $(this).attr('for');
+
+		$('#'+year).parent().prevAll('div').slideUp(800);
+
+		$('#'+year).parent().slideDown(800).nextAll('div').slideDown(800);
+
+	});
+
+});
+
+</script>
+</body>
+</html>

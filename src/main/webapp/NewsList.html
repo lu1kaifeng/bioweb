@@ -1,0 +1,462 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Biomedical Informatics Institute</title>
+<meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="Css/common.css" />
+    <link rel="stylesheet" href="Css/data.css" />
+    <script type="text/JavaScript" src="Js/jquery-1.7.2.min.js"></script>
+    <script type="text/JavaScript" src="Js/common.js"></script>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" media="screen" href="Css/style.css">
+    <link href="Css/News.css" rel="stylesheet"/>
+    <link href="Css/menuStyle.css" rel="stylesheet" />
+    <style type="text/css">
+    	a:hover
+    	{
+    	    text-decoration:none;
+    	}   
+    	div {
+    	position:relative;
+    	} 	
+    </style>
+    <link rel="stylesheet" type="text/css" href="mcss/meun.css"/>
+</head>
+<body>
+<div class="topMenu" style="font-size: 18px;background:#747070;min-width:1300px;">
+        <div  style="padding:0;margin-left:0px;min-width:1300px;background-color:#747070;">
+            <div class="navbar-header" style="background-color:#747070;margin-left:0px;min-width:420px;padding:0;float:left">                
+                <a class="navbar-brand">
+                    <img src="static/img/research.png" alt="Biomedical Informatics Institute" width="50" style="margin-top: -15px;" />
+                </a>
+                <div style="color:white;line-height:50px;font-size:20px;"><nobr>Biomedical Informatics Institute</nobr></div>
+            </div>
+            <div style="min-width:780px;float:left">
+                 <div style="min-width:780px;margin:auto;font-size:22px;background-color:#747070;padding-left:50px;">
+                 	<ul style="float: left;" >
+						<li class="dropdown" style="width: 90px;">
+							<a class="colorNavulli" href="Index.html">Home</a>
+						</li>
+						<li class="dropdown" style="width: 105px;">
+							<a class="colorNavulli" href="members.html" >Member</a>
+						</li>
+						<!-- 二级菜单:哔哩哔哩动画 -->
+						<li class="dropdown" style="width:100px;">
+							<a class="colorNavulli">Tools</a>
+							<ul class="dropdown-content" style="position:absolute;">
+								<li style="width:100px;">
+									<a href="DatabaseList.jsp" style="text-decoration:none;margin-left:10px;">LOGpc</a>
+								</li>
+							</ul>
+						</li>
+						<!-- 右浮动的一级菜单选项:百度 -->
+						<li style="width: 130px">
+							<a class="colorNavulli" href="results.html" style="font-family:微软雅黑;" >Publication</a>
+						</li>
+						<li style="width: 90px;">
+							<a class="colorNavulli" href="NewsList.html" >News</a>     
+						</li>
+					</ul>                 
+            	 </div>
+            </div>
+        </div>
+    </div>  
+    <div id="particles-js"></div>
+<div class="news_main" style="margin-left: 75px;width:90%;">
+	<div class="news news-split" style="width:100%">
+    <div class="ant-spin-container" style="margin-bottom: 70px;">
+    	<p><a href="#"><h3></h3></a></p>    	
+    	<div style="width:10px;height:10px;"></div>
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="https://www.frontiersin.org/research-topics/17728/tumor-associated-antigens-and-their-autoantibodies-from-discovering-to-clinical-utilization">Congrats to Our 3rd Research Topic Online! Welcome to submit your work!</a></h4>
+          </div>
+          <div class="list-mark">2021-01-02</div>
+        </div>
+        </div>
+<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">喜讯：郭向前教授、王艳鸽副教授当选中国微循环学会转化医学专业委员会副主任委员、委员！</a></h4>
+          </div>
+          <div class="list-mark">2021-01-01</div>
+        </div>
+        </div>
+<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">喜讯：郭向前教授、谢龙祥副教授当选中国抗癌协会肿瘤标志专业委员会肿瘤测序及大数据分析专家委员会副主任委员、委员！</a></h4>
+          </div>
+          <div class="list-mark">2020-12-13</div>
+        </div>
+        </div>
+<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Mark-LOGpc has been accessed for 70001 times, wow.</a></h4>
+          </div>
+          <div class="list-mark">2020-09-06</div>
+        </div>
+        </div>
+
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="https://mp.weixin.qq.com/s?__biz=MzI3NTk1OTcwOQ==&mid=2247483731&idx=1&sn=71e691e20d9d23090f87723e63a66af5&chksm=eb7d9ba1dc0a12b798f45fa8b83f08dc8c3ff4084cec833e4b30daf35ea5b669444fffbbc05c&mpshare=1&scene=1&srcid=&sharer_sharetime=1593216284832&sharer_shareid=b462a1cf0eda4dc738bb38c250db2a44&key=32686516f8c11656eaee66a115cb7292acac615375223c0851c1849a712f0bd950af5f1ddb9e4bf1ca9303101f61ee6f37118058a1b299d357b9533a0653396b60b223efeed5ce71917683de9992e4f6&ascene=1&uin=MTAxMjE2NDQwNA%3D%3D&devicetype=Windows+7&version=62090523&lang=zh_CN&exportkey=AR%2BoRzOTSzjrGQMxhzT7bm8%3D&pass_ticket=fJvKsMmmIGZrVZduf109JnLxPzCLFiVQ0okVWHX%2FAzFN8kqDlqXG87z8Ip03QUR%2B">生物医学——未来已来</a></h4>
+          </div>
+          <div class="list-mark">2020-06-27</div>
+        </div>
+        </div>
+<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Our 2nd Research Topic Online! Welcome to submit your work!</a></h4>
+          </div>
+          <div class="list-mark">2020-03-24</div>
+        </div>
+        </div>
+<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Wan and Longxiang for Prognosis Deep Learning paper accepted by cancers!</a></h4>
+          </div>
+          <div class="list-mark">2020-03-02</div>
+        </div>
+        </div>    	
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Longxiang for ACC hub gene paper accepted by Journal of Cellular and Molecular Medicine!</a></h4>
+          </div>
+          <div class="list-mark">2020-02-12</div>
+        </div>
+        </div>
+        <div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Donghuan and Wangqiang for OSdlbcl paper selected as the cover article by Cancer Medicine!</a></h4>
+          </div>
+          <div class="list-mark">2020-02-11</div>
+        </div>
+        </div>
+        <div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Guosen and Wangqiang for OSpaad paper selected as the cover article by Molecular Carcinogenesis!</a></h4>
+          </div>
+          <div class="list-mark">2020-01-31</div>
+        </div>
+        </div>
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Hong and Guosen for Prognosis web server and tool review paper accepted by Frontiers in Oncology!</a></h4>
+          </div>
+          <div class="list-mark">2020-01-15</div>
+        </div>
+        </div>
+		<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Longxiang, Huimin and Lu for P4HB paper accepted by Aging!</a></h4>
+          </div>
+          <div class="list-mark">2020-01-03</div>
+        </div>
+        </div>    	
+		<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Guosen and Wangqiang for OSpaad paper accepted by Molecular Carcinogenesis!</a></h4>
+          </div>
+          <div class="list-mark">2019-12-27</div>
+        </div>
+        </div>
+        <div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Donghuan and Wangqiang for OSdlbcl paper accepted by Cancer Medicine!</a></h4>
+          </div>
+          <div class="list-mark">2019-12-26</div>
+        </div>
+        </div>
+        
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Donghuan and Wangqiang for OSgbm paper accepted by Frontiers in Genetics!</a></h4>
+          </div>
+          <div class="list-mark">2019-12-18</div>
+        </div>
+        </div>
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Zhongyi and Wangqiang for OSbrca paper accepted by Frontiers in Oncology!</a></h4>
+          </div>
+          <div class="list-mark">2019-11-16</div>
+        </div>
+        </div>
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="https://wap.peopleapp.com/article/rmh8765065/rmh8765065?from=groupmessage&isappinstalled=0">肿瘤智库平台及基金会在京成立</a></h4>
+          </div>
+          <div class="list-mark">2019-10-27</div>
+        </div>
+        </div>
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Fengling and Wangqiang for OSuvm paper accepted by Molecular Carcinogenesis!</a></h4>
+          </div>
+          <div class="list-mark">2019-10-10</div>
+        </div>
+        </div>
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Longxiang and Wangqiang for OSacc paper accepted by Cancer Management and Research!</a></h4>
+          </div>
+          <div class="list-mark">2019-10-02</div>
+        </div>
+        </div>
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Luzhang and Wangqiang for OScc paper accepted by Future Oncology!</a></h4>
+          </div>
+          <div class="list-mark">2019-09-02</div>
+        </div>
+        </div>
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="News/zhyx.html">我校主办第三届国际转化医学大会</a></h4>
+          </div>
+          <div class="list-mark">2019-07-28</div>
+        </div>
+        </div>
+        <div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="News/bsh.html">河南大学基础医学院师资博士后中期考核顺利完成</a></h4>
+          </div>
+          <div class="list-mark">2019-07-28</div>
+        </div>
+        </div>
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Longxiang and Wangqiang for OSkirc paper accepted by Future Oncology!</a></h4>
+          </div>
+          <div class="list-mark">2019-07-16</div>
+        </div>
+        </div>
+        <div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to our collaboration paper accepted by Heamatologica!</a></h4>
+          </div>
+          <div class="list-mark">2019-07-07</div>
+        </div>
+        </div>
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="News/sharenew.html">我院师生应邀参加第六届“共享杯”大学生科技资源共享服务创新大赛颁奖会暨第七届大赛启动会</a></h4>
+          </div>
+          <div class="list-mark">2019-05-21</div>
+        </div>
+        </div>
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Guosen and Wangqiang for OSblca paper accepted by Frontiers in Oncology!</a></h4>
+          </div>
+          <div class="list-mark">2019-05-15</div>
+        </div>
+        </div>
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="https://www.frontiersin.org/research-topics/10299/bioinformatics-tools-and-web-server-for-cancer-biomarker-development#overview">Congrats to our Research Topic Online! Welcome to submit your work!</a></h4>
+          </div>
+          <div class="list-mark">2019-04-22</div>
+        </div>
+        </div>
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="News/winnews.html">喜讯：人口健康共享杯大赛获奖!</a></h4>
+          </div>
+          <div class="list-mark">2019-04-15</div>
+        </div>
+        </div>
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Dr. Zhu and Dr. Wang for Pancreatic Ductal Adenocarcinoma Plasma miRNA paper accepted by Biochemistry!</a></h4>
+          </div>
+          <div class="list-mark">2019-04-05</div>
+        </div>
+        </div>    	
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Fengling for ESCC subtyping paper accepted by Neoplasia!</a></h4>
+          </div>
+          <div class="list-mark">2019-03-30</div>
+        </div>
+        </div>    	
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="https://mp.weixin.qq.com/s?__biz=MzU1ODUzNzg4Mg==&mid=2247483972&idx=1&sn=c00a95a3c14931e11eec764d587fa3db&chksm=fc244fb1cb53c6a75a194276aca41ea8b7e52a220453d614d6f364fc46a32f81d13e6510798f&mpshare=1&scene=1&srcid=0322akq2uzjPqcxt6SSDK2wc&key=31930ee433f6b26fa5a9e174c23e0bce6feeecbeed1c1786854f294d4aae1526ddbd0f5623df5837a11fe6111aa5b4cf2d839443c46480b420462d2c41e4dd4b8d9a0efa91465534206abc2cf7b5a24a&ascene=1&uin=MTAxMjE2NDQwNA%3D%3D&devicetype=Windows+7&version=62060739&lang=zh_CN&pass_ticket=A2v21TaOpLveix9Da27oEY1029wfOsOinKl6IjY0K36xQi0sDdcIepRlGuL1RoaV">第三届国际转化医学大会暨2019中国微循环学会转化医学专业委员会年会定于2019年7月26日于河南大学（开封）举行</a></h4>
+          </div>
+          <div class="list-mark">2019-03-22</div>
+        </div>
+        </div>    	
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Wangqiang and Longxiang for OSlms paper accepted by Frontiers in Oncology!</a></h4>
+          </div>
+          <div class="list-mark">2019-03-09</div>
+        </div>
+        </div>
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="http://share.escience.net.cn/nav/index/article/details?articleId=ART2019022701">本所荣获第六届“共享杯”大学生科技资源共享服务创新大赛二等奖、优秀奖、优秀指导老师奖！</a></h4>
+          </div>
+          <div class="list-mark">2019-02-28</div>
+        </div>
+        </div>
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Longxiang for KRT8 prognosis paper accepted by Genes.</a></h4>
+          </div>
+          <div class="list-mark">2019-01-05</div>
+        </div>
+        </div>  
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="https://mp.weixin.qq.com/s?__biz=MzU1ODUzNzg4Mg==&mid=2247483947&idx=1&sn=df655264d3f57907727fb67cbd33348c&chksm=fc244fdecb53c6c8e9d3e449a4b26ef60223e2eedf0e8fe52d18f5175151c87bfe478f8d46b0&mpshare=1&scene=1&srcid=1224rYZRvidwlA12r1P9JeAv#rd">中国微循环学会转化医学专业委员会青年工作委员会筹备会近日在河南大学举行</a></h4>
+          </div>
+          <div class="list-mark">2018-12-24</div>
+        </div>
+        </div>  
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="http://news.henu.edu.cn/info/1083/100017.htm">恭贺郭向前教授获得河南大学优秀博士后合作导师称号，谢龙祥博士获得河南大学优秀博士后称号！</a></h4>
+          </div>
+          <div class="list-mark">2018-12-21</div>
+        </div>
+        </div>      
+    	<div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Welcome new member Huimin!</a></h4>
+          </div>
+          <div class="list-mark">2018-11-06</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#"> Congrats to Wangqiang for OSescc paper accepted!</a></h4>
+          </div>
+          <div class="list-mark">2018-11-06</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#"> Congrats to our team for EAC subtyping paper accepted by BMC genomics!</a></h4>
+          </div>
+          <div class="list-mark">2018-10-16</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="#">Congrats to Yongqiang and Jiajia for their ctDNA paper accepted by Frontiers in Oncology!</a></h4>
+            
+          </div>
+          <div class="list-mark">2018-10-15</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title">
+            	<a href="News/Biolearning3.html">2018年河南大学生物信息学术沙龙系列讲座第3期圆满结束</a></h4>
+          </div>
+          <div class="list-mark">2018-10-08</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="News/Biolearning2.html">我校生物信息学术沙龙（第二期）举行    </a></h4>
+          </div>
+          <div class="list-mark">2018-09-30</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="News/Biolearning.html">2018年河南大学生物信息学术沙龙系列讲座第一讲圆满结束         </a></h4>
+          </div>
+          <div class="list-mark">2018-09-09</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="https://mp.weixin.qq.com/s/lOCuqCRPLc2kU1GSJcjQ_Q">河南大学医学院2018级新生开学典礼隆重举行，本所老师作为医学院教师代表在医学院开学典礼发言           </a></h4>
+          </div>
+          <div class="list-mark">2018-09-03</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="News/MitmNews.html">喜讯：本所老师荣获中国微循环学会转化医学专业委员常务委员﹑青委会主任委员、青委会秘书长、青委会委员      </a></h4>
+          </div>
+          <div class="list-mark">2018-07-23</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="xyPostdoc.html">河南大学博士后学术论坛——表观遗传与癌症暨生物医学高端研讨会        </a></h4>
+          </div>
+          <div class="list-mark">2018-04-14</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="list">
+          <div class="list-content">
+            <h4 class="list-title"><a href="newsPostdoc.html">Postdoctoral academic forum of Henan University   </a></h4>
+          </div>
+          <div class="list-mark">2018-02-08</div>
+        </div>
+      </div>     
+    </div>
+  </div>  
+</div>
+ <footer style="text-align: center;height: 80px;padding-top: 20px;">
+            <p class="footer">Copyright &copy; 2018 Biomedical Informatics Institute</p>
+</footer>
+        <script src="Js/particles.min.js"></script>
+        <script src="Js/app.js"></script>
+</body>
+</html>

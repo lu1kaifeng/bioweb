@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+
+
+.colorNav{width: 730px;
+	margin:0 auto;
+	height: 80px;}
+
+.colorNavul{
+	width: 600px; /* Increase when adding more menu items */
+	margin:0 auto;
+	height: 50px;
+	position: relative;
+	z-index: 9;
+}
+
+.colorNavulli{ 
+	height: 50px;
+	list-style: none;
+	display: inline-block;
+	line-height: 1;
+	margin-left: 1px;
+	margin: 0 auto;
+	border-radius: 3px;
+	position:relative;
+	padding-left:10px;
+	padding-right:10px;
+    line-height:45px;
+}
+a:hover
+{
+	text-decoration:none ;
+}
+.active
+{
+	height: 50px;
+	list-style: none;
+	display: inline-block;
+	line-height: 1;
+	margin-left: 1px;
+	margin: 0 auto;
+	border-radius: 3px;
+	position:relative;
+	padding-left:10px;
+	padding-right:10px;
+    line-height:45px;
+}
+.header-nav1{
+	color:inherit;
+	text-decoration:none ;
+	font-size:20px;
+	padding: 0px;
+	line-height: 40px;
+}

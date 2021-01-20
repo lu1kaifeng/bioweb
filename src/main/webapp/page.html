@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+    <style>
+    	#body{
+    		text-align: center;
+    		min-width: 700px;
+    		height: 750px;
+    	}
+    	#footer{
+    		clear: both;
+    	}
+    </style>
+    <script>
+    	function chang_Male(){
+    		var if_con=document.getElementById("iframe_con");
+    		if_con.src="body_Male.html";
+    	}
+    	function chang_Female(){
+    		var if_con=document.getElementById("iframe_con");
+    		if_con.src="body_Female.html";
+    	}
+    </script>
+  </head>
+  <body>
+    <div id="body" class="container" style="min-width:1300px;margin:auto;">
+		<div class="alert alert-info" role="alert" style="font-size:20px">
+  		    Welcome to the LOGpc, a database for cancer related mRNA
+		</div>
+        <div style="width:1300px;margin:auto">
+            <div role="tabpanel" class="tab-pane active" id="sreach">    	
+		        <div class="card text-left" >  					
+  		            <div class="card-body" style="float:left">    					
+    		            <div class="alert alert-warning" role="alert" style="width:300px;height:470px;">
+    			            <div class="card-header" style="font-size: 40px;">
+    				            LOGpc
+  				            </div>
+  		  	                LOGpc ( Long-term Outcome and Gene Expression Profiling Database of pan-cancers ) encompasses 171 expression datasets, provides 13 types of survival terms for 27625 patients of 26 distinct malignancies.
+				        </div>
+  		            </div>
+                    <div style="width:930px;float:left;">
+                        <iframe id="iframe_con" class="center-block" scrolling="no" style="width: 460px; height:600px; border: none; float:left" src="body_Male.html" frameborder="0"></iframe>
+                        <iframe id="iframe_con" class="center-block" scrolling="no" style="width: 460px; height:600px; border: none; float:left" src="body_Female.html" frameborder="0"></iframe>
+                    </div>
+		        </div>					
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

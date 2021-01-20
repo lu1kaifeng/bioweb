@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Meun</title>
+	<!-- 链接到外部样式表 -->
+
+	<link rel="stylesheet" type="text/css" href="mcss/meun.css"/>
+	<!-- 设置所有超链接单击的时候的打开方式为在框架"isFrame"中打开 -->
+	<base target="isFrame" />
+</head>
+
+<body>
+
+	
+	<!-- 顶部div区域，存放横向导航栏 -->
+	<div class="topMenu" style="width:1400px;margin:auto;font-size:20px;background-color:#747070;">
+		<!-- 一级菜单 -->
+		 <img src="mimg/numts2.png"  width="90px" style="float: left;  margin-left:10px ;margin-top: -10px;"/>
+		 <span style="color:white;line-height:50px;float: left; margin-left:15px ; margin-right:8px ;font-size:20px ;" ><nobr>Biomedical Informatics Institute</nobr></span>
+		<ul style="float: left;" >
+					
+			<li class="dropdown" style="width: 100px;">
+				<a class="colorNavulli" href="Index.html" >Home</a>
+			</li>
+			<li class="dropdown" style="width: 120px;">
+				<a class="colorNavulli" href="members.html" >Member</a>
+			</li>
+			<!-- 二级菜单:哔哩哔哩动画 -->
+			<li class="dropdown"   style="width:200px;">
+					<a class="colorNavulli" href="DatabaseList.jsp" >Database</a>
+					<ul class="dropdown-content">
+						<li>
+							<a class="" href="ShowDataBase.html" >ShowDatabase</a>
+						</li>
+						<li>
+							<a class="" href="search.jsp" >SearchDatabase</a>
+						</li>
+						<li>
+							<a class="" href="DatabaseList.jsp" >LOGpc Database</a>
+						</li>
+					</ul>
+			</li>
+			<!-- 右浮动的一级菜单选项:百度 -->
+			<li style="width: 120px">
+				<a class="colorNavulli" href="result.html" >Publication</a>
+			</li>
+
+			<li style="width: 120px;">
+				<a class="colorNavulli" href="NewsList.html" >News</a>     
+			</li>
+		</ul>
+	</div>
+	
+	<!-- 主要内容的div区域，存放网站页面的框架 -->
+	<div class="mainContent" style="width: 1400px;">
+		<iframe name="isFrame" src="Index.html"></iframe>
+	</div> 
+	
+</body>
+
+</html>

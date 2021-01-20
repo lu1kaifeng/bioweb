@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="renderer" content="webkit" />
+        
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="Yaoli" />
+        
+        <meta name="robots" content="index,follow" />
+        <meta name="google" content="index,follow" />
+        
+        <meta name="apple-mobile-web-app-title" content="Data Base" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        
+        <link rel="icon" type="image/png" href="static/img/dataBase.png" />
+        
+        <link rel="apple-touch-icon" href="static/img/dataBase-152.png" />
+        <link rel="icon" type="image/png" href="static/img/dataBase-32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="static/img/dataBase-16.png" sizes="16x16" />
+        <!-- <link rel="mask-icon" href="static/img/dataBase-svg.svg" /> -->
+        
+        <meta name="x5-fullscreen" content="true" />
+        <meta name="x5-orientation" content="portrait" />
+        <meta name="x5-page-mode" content="app" />
+        
+        <meta name="theme-color" content="#fff" />
+        
+        <!-- <meta name="google" value="notranslate" /> -->
+        
+        <title>Data Base</title>
+        
+        <link href="static/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="static/css/ie10-viewport-bug-workaround.css" rel="stylesheet" />
+        <link href="static/css/base.css" rel="stylesheet" />
+        
+        <!--[if lt IE 9]>
+                    <script src="static/js/html5shiv.min.js"></script>
+                    <script src="static/js/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="static/js/jquery.min.js"></script>
+        <script src="static/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse container-fluid" id="navbar-fixed" style="font-size: 18px;">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false" style="border: 0; outline: 0;">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="static/img/research.png" alt="Institute of Biotechnology" width="50" style="margin-top: -15px;" />
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="javascript:void(0);">Institute of Biotechnology</a>
+                        </li>
+                        <li>
+                            <a href="index.html">HOME
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="members.html">MEMBER</a>
+                        </li>
+                        <li class="active">
+                            <a href="dataBase.html">DATABASE</a>
+                        </li>
+                        <li>
+                            <a href="results.html">RESULTS</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="panel-group container-fluid" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            dataBase #1
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <div class="container" style="width: 100%;">
+                            <form action="">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputEmail">Email address</p>
+                                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputPassword">Password</p>
+                                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputEmail">Email address</p>
+                                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputPassword">Password</p>
+                                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputEmail">Email address</p>
+                                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputPassword">Password</p>
+                                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" />
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-01</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-02</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-03</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-04</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-05</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-06</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-07</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-08</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-09</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                        
+                                <div class="row text-center" style="padding-top: 22px;">
+                                    <button type="submit" class="btn btn-info btn-lg">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="container" style="text-shadow: none; padding-bottom: 22px; width: 100%; border: 1px solid #303030; margin-top: 25px;">
+                            这里放图片
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                            aria-controls="collapseTwo">
+                            dataBase #2
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                        <div class="container" style="width: 100%;">
+                            <form action="">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputEmail">Email address</p>
+                                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputPassword">Password</p>
+                                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputEmail">Email address</p>
+                                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputPassword">Password</p>
+                                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputEmail">Email address</p>
+                                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputPassword">Password</p>
+                                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" />
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-01</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-02</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-03</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-04</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-05</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-06</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-07</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-08</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-09</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                        
+                                <div class="row text-center" style="padding-top: 22px;">
+                                    <button type="submit" class="btn btn-info btn-lg">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="container" style="text-shadow: none; padding-bottom: 22px; width: 100%; border: 1px solid #303030; margin-top: 25px;">
+                            这里放图片
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+                            aria-controls="collapseThree">
+                            dataBase #3
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+                        <div class="container" style="width: 100%;">
+                            <form action="">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputEmail">Email address</p>
+                                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputPassword">Password</p>
+                                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputEmail">Email address</p>
+                                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputPassword">Password</p>
+                                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputEmail">Email address</p>
+                                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <p class="text-left lead" for="exampleInputPassword">Password</p>
+                                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" />
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-01</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-02</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-03</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-04</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-05</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-06</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-07</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-08</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <p class="text-left lead">.col-md-09</p>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                        
+                                <div class="row text-center" style="padding-top: 22px;">
+                                    <button type="submit" class="btn btn-info btn-lg">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="container" style="text-shadow: none; padding-bottom: 22px; width: 100%; border: 1px solid #303030; margin-top: 25px;">
+                            这里放图片
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFour">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
+                            aria-controls="collapseFour">
+                            dataBase #4
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                    <div class="panel-body">
+                        empty
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFive">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false"
+                            aria-controls="collapseFive">
+                            dataBase #5
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                    <div class="panel-body">
+                         empty
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center" style="height:35px; text-shadow: none; font-weight: bolder; margin-top: 25px;">
+            <p>Copyright &copy; 2020 Scientific research Website. All Rights Reserved.</p>
+        </div>
+    </body>
+</html>

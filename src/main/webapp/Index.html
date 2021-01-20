@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Yaoli" />
+
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="index,follow" />
+
+    <meta name="apple-mobile-web-app-title" content="Institute of Biotechnology" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="icon" type="image/png" href="static/img/dna.png" />
+
+    <link rel="apple-touch-icon" href="static/img/dna-152.png" />
+    <link rel="icon" type="image/png" href="static/img/dna-32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="static/img/dna-16.png" sizes="16x16" />
+    <!-- <link rel="mask-icon" href="static/img/dna-svg.svg" /> -->
+
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="x5-orientation" content="portrait" />
+    <meta name="x5-page-mode" content="app" />
+
+    <meta name="theme-color" content="#fff" />
+
+    <!-- <meta name="google" value="notranslate" /> -->
+
+    <title>Biomedical Informatics Institute</title>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="static/css/base.css" rel="stylesheet" />
+    <link href="Css/menuStyle.css" rel="stylesheet" />
+    <style>
+    .login{color:white}
+    .login:hover{color:gray}
+	div {
+    	position:relative;
+    	}
+    </style>
+    <!--[if lt IE 9]>
+            <script src="static/js/html5shiv.min.js"></script>
+            <script src="static/js/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/base.js"></script>
+    <link rel="stylesheet" type="text/css" href="mcss/meun.css"/>
+</head>
+<body>
+    <div class="topMenu" style="font-size: 18px;background:#747070;min-width:1300px;">
+        <div  style="padding:0;margin-left:0px;min-width:1300px;background-color:#747070;">
+            <div class="navbar-header" style="background-color:#747070;margin-left:0px;min-width:420px;padding:0;float:left">                
+                <a class="navbar-brand">
+                    <img src="static/img/research.png" alt="Biomedical Informatics Institute" width="50" style="margin-top: -15px;" />
+                </a>
+                <div style="color:white;line-height:50px;font-size:20px;"><nobr>Biomedical Informatics Institute</nobr></div>
+            </div>
+            <div style="min-width:780px;float:left">
+                 <div style="min-width:780px;margin:auto;font-size:22px;background-color:#747070;padding-left:50px;">
+                 	<ul style="float: left;" >
+						<li class="dropdown" style="width: 90px;">
+							<a class="colorNavulli" href="Index.html">Home</a>
+						</li>
+						<li class="dropdown" style="width: 105px;">
+							<a class="colorNavulli" href="members.html" >Member</a>
+						</li>
+						<!-- 二级菜单:哔哩哔哩动画 -->
+						<li class="dropdown" style="width:100px;">
+							<a class="colorNavulli">Tools</a>
+							<ul class="dropdown-content" style="position:absolute;">
+								<li style="width:100px;">
+									<a href="DatabaseList.jsp" style="text-decoration:none;margin-left:10px;">LOGpc</a>
+								</li>
+								<li style="width:100px;">
+									<a href="PPCList.jsp" style="text-decoration:none;margin-left:10px;">OSppc</a>
+								</li>
+							</ul>
+						</li>
+						<!-- 右浮动的一级菜单选项:百度 -->
+						<li style="width: 130px">
+							<a class="colorNavulli" href="results.html" style="font-family:微软雅黑;" >Publication</a>
+						</li>
+						<li style="width: 90px;">
+							<a class="colorNavulli" href="NewsList.html" >News</a>     
+						</li>
+					</ul>                 
+            	 </div>
+            </div>
+        </div>
+    </div> 
+
+    <canvas id="canvas" class="canvas-style"></canvas>
+
+    <div class="container-fluid" id="container-change">
+        <div id="box-change"></div>
+
+        <img class="img-style img-responsive" id="img-change" src="static/img/gene.png" alt="" width="140" height="140" />
+
+        <h2 class="text-center font-change margin-change">Biomedical Informatics Institute</h2>
+        <p class="text-center font-change">
+            
+        </p>
+        <br />
+        <br />
+        <br />
+		<p class="lead" style="font-size:22px;padding-left:30px;padding-right:30px;">
+              &nbsp;&nbsp;&nbsp;&nbsp;Our research focuses on the study of human cancers, genetic diseases and development of biomedical database/software by using high-throughput and high dimension data, our goal is to molecularly subtype diseases and build subtype-specific diagnostic and prognostic markers, and to identify potential subtype-specific therapeutic targets.
+		</p>
+        <!-- <p class="margin-change">
+            <a class="btn btn-info btn-style font-change" id="button-change" href="javascript:void(0);" role="button">More Info</a>
+        </p> -->
+    </div>
+
+    <!-- <div class="container  marketing" id="container-dis" style="padding-top: 22px;">
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">First
+                    <span class="text-muted"></span>
+                </h2>
+
+                <p class="lead" style="font-size:22px">
+                    Our research focuses on the study of human cancers, genetic diseases and development of biomedical database/software by using high-throughput and high dimension data, our goal is to molecularly subtype diseases and build subtype-specific diagnostic and prognostic markers, and to identify potential subtype-specific therapeutic targets.
+                </p>
+            </div>
+
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive img-rounded center-block" src="static/img/dc542.gif" width="270" data-src="" alt="" />
+            </div>
+        </div>
+
+        <hr class="featurette-divider" />
+
+        <div class="row featurette">
+            <div class="col-md-7 col-md-push-5">
+                <h2 class="featurette-heading">Second
+                    <span class="text-muted"></span>
+                </h2>
+
+                <p class="lead" style="font-size:22px">
+                    Our research focuses on the study of human cancers, genetic diseases and development of biomedical database/software by using high-throughput and high dimension data, our goal is to molecularly subtype diseases and build subtype-specific diagnostic and prognostic markers, and to identify potential subtype-specific therapeutic targets.
+                </p>
+            </div>
+
+            <div class="col-md-5 col-md-pull-7">
+                <img class="featurette-image img-responsive img-rounded center-block" src="static/img/timge.gif" data-src="" alt="" />
+            </div>
+        </div>
+
+        <hr class="featurette-divider" />
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Third
+                    <span class="text-muted"></span>
+                </h2>
+            
+                <p class="lead" style="font-size:22px">
+                    Our research focuses on the study of human cancers, genetic diseases and development of biomedical database/software by using high-throughput and high dimension data, our goal is to molecularly subtype diseases and build subtype-specific diagnostic and prognostic markers, and to identify potential subtype-specific therapeutic targets.
+                </p>
+            </div>
+            
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive img-rounded center-block" src="static/img/timgn.gif" width="270" data-src="" alt="" />
+            </div>
+        </div>
+
+        <hr class="featurette-divider" /> -->
+
+        <!-- <div class="row">
+            <div class="col-lg-4">
+                <img class="img-circle img-style" src="Images/photo/gxq.jpg" alt="" width="140" height="140" />
+        
+                <h2 class="text-center">Xiangqian Guo</h2>
+                <p class="text-center">
+                    
+                </p>
+            </div>
+        
+            <div class="col-lg-4">
+                <img class="img-circle img-style" src="Images/photo/xlx.jpg" alt="" width="140" height="140" />
+        
+                <h2 class="text-center">Longxiang Xie</h2>
+                <p class="text-center">
+                    Ph.D. Associate professor.<br />
+                    He is interested in cancer and protein<br /> 
+                    posttranslational modification.
+                </p>
+            </div>
+        
+            <div class="col-lg-4">
+                <img class="img-circle img-style" src="Images/photo/ay.jpg" alt="" width="140" height="140" />
+        
+                <h2 class="text-center">Yang An</h2>
+                <p class="text-center">
+                	Ph.D. Associate professor.<br />
+                    She is interested in molecular biology of tumor,<br/> 
+                    especially molecular subtyping. 
+                </p>
+            </div>
+        </div> -->
+
+        <hr class="featurette-divider" />
+
+    <div class="container">
+        <p class="text-center">Copyright &copy; 2018 Biomedical Informatics Institute</p>
+        <p class="text-center"><a class="login" href="Login.jsp">login</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <resource-ref>
+    <description>DB Connection</description>
+    <res-ref-name>jdbc/SSBLCA</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+  <welcome-file-list>
+    <welcome-file>Index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>DBList.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>BLCATCGA</servlet-name>
+    <servlet-class>edu.henu.bioweb.BLCA.BLCATCGA</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BLCATCGA</servlet-name>
+    <url-pattern>/BLCATCGA</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>BLCAGSE13507</servlet-name>
+    <servlet-class>edu.henu.bioweb.BLCA.BLCAGSE13507</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BLCAGSE13507</servlet-name>
+    <url-pattern>/BLCAGSE13507</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>BLCAGSE19915</servlet-name>
+    <servlet-class>edu.henu.bioweb.BLCA.BLCAGSE19915</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BLCAGSE19915</servlet-name>
+    <url-pattern>/BLCAGSE19915</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>BLCAGSE31684</servlet-name>
+    <servlet-class>edu.henu.bioweb.BLCA.BLCAGSE31684</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BLCAGSE31684</servlet-name>
+    <url-pattern>/BLCAGSE31684</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>BLCAGSE32548</servlet-name>
+    <servlet-class>edu.henu.bioweb.BLCA.BLCAGSE32548</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BLCAGSE32548</servlet-name>
+    <url-pattern>/BLCAGSE32548</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>BLCAGSE48075</servlet-name>
+    <servlet-class>edu.henu.bioweb.BLCA.BLCAGSE48075</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BLCAGSE48075</servlet-name>
+    <url-pattern>/BLCAGSE48075</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>BLCAGSE48276</servlet-name>
+    <servlet-class>edu.henu.bioweb.BLCA.BLCAGSE48276</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BLCAGSE48276</servlet-name>
+    <url-pattern>/BLCAGSE48276</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>BLCACombined</servlet-name>
+    <servlet-class>edu.henu.bioweb.BLCA.BLCACombined</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BLCACombined</servlet-name>
+    <url-pattern>/BLCACombined</url-pattern>
+  </servlet-mapping>
+</web-app>

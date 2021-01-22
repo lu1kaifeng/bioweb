@@ -1,6 +1,5 @@
 package edu.henu.bioweb.LMS;
 
-import org.rosuda.JRI.REXP;
 import org.rosuda.JRI.Rengine;
 
 public class rtest {

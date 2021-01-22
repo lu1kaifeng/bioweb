@@ -1,8 +1,10 @@
 package edu.henu.bioweb.LMS;
+
+import javax.swing.*;
+import java.io.File;
 import java.io.FileInputStream;
-import java.io.*;
-import javax.swing.JFrame;
-import javax.swing.ProgressMonitorInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 public class ProgressMonitorTest {
 	public void useProgressMonitor(JFrame frame, String copyPath, String newPath) {
         try {

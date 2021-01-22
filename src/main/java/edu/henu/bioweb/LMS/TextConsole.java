@@ -1,16 +1,11 @@
 package edu.henu.bioweb.LMS;
 
-import java.io.*;
-import java.awt.Frame;
-import java.awt.FileDialog;
-
-import java.util.Enumeration;
-
-import org.rosuda.JRI.Rengine;
-import org.rosuda.JRI.REXP;
-import org.rosuda.JRI.RList;
-import org.rosuda.JRI.RVector;
 import org.rosuda.JRI.RMainLoopCallbacks;
+import org.rosuda.JRI.Rengine;
+
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class TextConsole implements RMainLoopCallbacks
 {

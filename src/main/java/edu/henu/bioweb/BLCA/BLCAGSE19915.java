@@ -1,32 +1,20 @@
 package edu.henu.bioweb.BLCA;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import edu.henu.bioweb.Common.BLCACom;
+import edu.henu.bioweb.Common.ComFun;
+import edu.henu.bioweb.GetPathReturn;
+import edu.henu.bioweb.RPlot;
+import org.rosuda.REngine.REXPMismatchException;
+import org.rosuda.REngine.Rserve.RserveException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import edu.henu.bioweb.GetPathReturn;
-import edu.henu.bioweb.RPlot;
-import org.rosuda.REngine.REXP;
-import org.rosuda.REngine.REXPMismatchException;
-import org.rosuda.REngine.REngineException;
-import org.rosuda.REngine.Rserve.RConnection;
-import org.rosuda.REngine.Rserve.RserveException;
-
-import edu.henu.bioweb.Common.BLCACom;
-import edu.henu.bioweb.Common.ComFun;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
 
 public class BLCAGSE19915   extends HttpServlet{
 

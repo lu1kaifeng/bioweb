@@ -1,20 +1,7 @@
 package edu.henu.bioweb.BLCA;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Random;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import edu.henu.bioweb.Common.BLCACom;
+import edu.henu.bioweb.Common.ComFun;
 import edu.henu.bioweb.GetPathReturn;
 import edu.henu.bioweb.RPlot;
 import org.rosuda.REngine.REXP;
@@ -23,8 +10,14 @@ import org.rosuda.REngine.REngineException;
 import org.rosuda.REngine.Rserve.RConnection;
 import org.rosuda.REngine.Rserve.RserveException;
 
-import edu.henu.bioweb.Common.BLCACom;
-import edu.henu.bioweb.Common.ComFun;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
 
 public class BLCACombined   extends HttpServlet{
 	private static final long serialVersionUID = 1L;

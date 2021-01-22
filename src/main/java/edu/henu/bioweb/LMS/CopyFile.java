@@ -1,16 +1,11 @@
 package edu.henu.bioweb.LMS;
 
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
+import java.io.*;
 
 public class CopyFile extends JFrame implements ActionListener {
 	

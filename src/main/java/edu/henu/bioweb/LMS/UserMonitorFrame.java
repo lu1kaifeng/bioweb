@@ -1,12 +1,9 @@
 package edu.henu.bioweb.LMS;
 
-import java.awt.EventQueue;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
  
 public class UserMonitorFrame extends JFrame implements Runnable{
     

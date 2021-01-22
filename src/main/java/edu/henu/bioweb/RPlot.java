@@ -2,9 +2,6 @@ package edu.henu.bioweb;
 
 
 import org.apache.commons.codec.binary.Base64;
-import sun.awt.Symbol;
-
-import java.util.Arrays;
 
 public class RPlot {
     private final byte[] bytes;

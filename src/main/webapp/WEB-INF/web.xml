@@ -83,4 +83,12 @@
     <servlet-name>BLCACombined</servlet-name>
     <url-pattern>/BLCACombined</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>Front</servlet-name>
+    <servlet-class>edu.henu.bioweb.BLCA.BLCAFront</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Front</servlet-name>
+    <url-pattern>/plot/*</url-pattern>
+  </servlet-mapping>
 </web-app>

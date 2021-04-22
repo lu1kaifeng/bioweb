@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
 public class SurvivalParam extends ControlParam{
     public final ArrayList<String> options;
     private static Map<String,String> eventMap;
-    public SurvivalParam(List<String> colList){
-        super(colList);
+    public SurvivalParam(List<String> colList,String jspTemplate){
+        super(colList,jspTemplate);
         if(eventMap== null){
             eventMap = new HashMap<>();
             eventMap.put("OS","OS_Event");
@@ -34,12 +34,6 @@ public class SurvivalParam extends ControlParam{
         this.options = colList.stream().filter((String i) ->
             eventMap.containsKey(i)
         ).collect(Collectors.toCollection(ArrayList::new));
-    }
-
-    @Override
-    public void render(PageContext pageContext) throws ServletException, IOException {
-        pageContext.getRequest().setAttribute("param",this);
-        pageContext.include("/control/survival.jsp",true);
     }
 
     @Override

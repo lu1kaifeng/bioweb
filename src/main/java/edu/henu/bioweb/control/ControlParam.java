@@ -10,17 +10,21 @@ import java.util.Map;
 public abstract class ControlParam {
     public abstract String getTagName();
     private static Map<String, IFunctionalParamConstructor> paramConstructorMap;
-    public ControlParam(List<String> colList){
-
+    protected String jspTemplate;
+    public ControlParam(List<String> colList,String jspTemplate){
+        this.jspTemplate = jspTemplate;
     }
-    public abstract void render(PageContext pageContext) throws ServletException, IOException;
+    public void render(PageContext pageContext) throws ServletException, IOException {
+        pageContext.getRequest().setAttribute("param",this);
+        pageContext.include(jspTemplate,true);
+    }
     public static ControlParam fromCol(String tagName, List<String> colList){
         if(paramConstructorMap == null) {
             paramConstructorMap = new HashMap<>();
-            paramConstructorMap.put("gender", GenderParam::new);
-            paramConstructorMap.put("histological_type", HistologicalTypeParam::new);
-            paramConstructorMap.put("survival", SurvivalParam::new);
-            paramConstructorMap.put("tnm", TNMParam::new);
+            paramConstructorMap.put("gender",(c)-> new GenderParam(c,"/control/gender.jsp"));
+            paramConstructorMap.put("histological_type",(c)->  new HistologicalTypeParam(c,"/control/histological_type.jsp"));
+            paramConstructorMap.put("survival",(c)->  new SurvivalParam(c,"/control/survival.jsp"));
+            paramConstructorMap.put("tnm",(c)->  new TNMParam(c,"/control/tnm.jsp"));
         }
         return paramConstructorMap.get(tagName).constructor(colList);
     }

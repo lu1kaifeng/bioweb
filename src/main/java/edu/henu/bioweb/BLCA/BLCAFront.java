@@ -110,7 +110,8 @@ public class BLCAFront extends HttpServlet {
         if(pathParts.length > 2) {
             String sample = pathParts[2]; // test
             List<ControlParam> cols = getCols(dbName,sample);
-            return;
+            req.setAttribute("controls",cols);
+            req.getRequestDispatcher("/plot.jsp").forward(req, resp);
         }
     }
 

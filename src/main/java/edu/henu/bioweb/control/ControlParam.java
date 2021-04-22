@@ -24,6 +24,10 @@ public abstract class ControlParam {
             paramConstructorMap.put("gender",(c)-> new GenderParam(c,"/control/gender.jsp"));
             paramConstructorMap.put("histological_type",(c)->  new HistologicalTypeParam(c,"/control/histological_type.jsp"));
             paramConstructorMap.put("survival",(c)->  new SurvivalParam(c,"/control/survival.jsp"));
+            paramConstructorMap.put("lymph",(c)->  new LymphParam(c,"/control/lymph.jsp"));
+            paramConstructorMap.put("race",(c)->  new RaceParam(c,"/control/race.jsp"));
+            paramConstructorMap.put("smoking",(c)->  new SmokingParam(c,"/control/smoking.jsp"));
+            paramConstructorMap.put("split",(c)->  new SplitParam(c,"/control/split.jsp"));
             paramConstructorMap.put("tnm",(c)->  new TNMParam(c,"/control/tnm.jsp"));
         }
         return paramConstructorMap.get(tagName).constructor(colList);

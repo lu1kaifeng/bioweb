@@ -12,6 +12,7 @@
 <html>
 <head>
     <title>Title</title>
+    <link href="/Css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
 <%

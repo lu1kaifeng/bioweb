@@ -5,9 +5,11 @@
   Time: 1:32 PM
   To change this template use File | Settings | File Templates.
 --%>
-
-    <%
-        ControlParam param =(ControlParam) request.getAttribute("param");
-        out.print(param.getTagName());
-    %>
-
+<tr>
+    <td><span class="text-left lead">Histological type:</span></td>
+<select name="histological_type" class="form-control" style="width:auto;" id="histological_type">
+    <option value="0">All</option>
+    <option value="1">MIBC</option>
+    <option value="2">NMIBC</option>
+</select>
+</tr>

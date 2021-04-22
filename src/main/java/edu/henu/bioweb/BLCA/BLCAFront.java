@@ -31,6 +31,7 @@ public class BLCAFront extends HttpServlet {
         super();
         listCol.add("perid");
         listCol.add("GSM");
+        listCol.add("family_history");
         listCol.add("OS");
         listCol.add("OS_Event");
         listCol.add("DFI");

@@ -95,6 +95,7 @@ public class BLCAFront extends HttpServlet {
                 cols.add(rs.getString(1));
             }
             cols.add("survival");
+            cols.add("split");
             return cols.stream().filter(s -> !listCol.contains(s)).map((String s)->ControlParam.fromCol(s,cols)).collect(Collectors.toList());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -112,6 +113,8 @@ public class BLCAFront extends HttpServlet {
             String sample = pathParts[2]; // test
             List<ControlParam> cols = getCols(dbName,sample);
             req.setAttribute("controls",cols);
+            req.setAttribute("dbName",dbName);
+            req.setAttribute("sample",sample);
             req.getRequestDispatcher("/plot.jsp").forward(req, resp);
         }
     }

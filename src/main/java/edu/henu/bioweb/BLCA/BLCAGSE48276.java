@@ -55,14 +55,14 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		request.setCharacterEncoding("UTF-8");
 		
 		
-		strSurvival = request.getParameter("ddlSurvival");
+		strSurvival = request.getParameter("survival");
 		//strGenList=request.getParameter("mulGen");//��ȡ������
-		strtnm = request.getParameter("tnmstage");
-		strRace = request.getParameter("ddlRace");
-		strSplit = request.getParameter("ddlSplit");
-		strGender = request.getParameter("ddlGender");
-		strHistological=  request.getParameter("ddlHistological");
-		strGen = request.getParameter("txtGen");
+		strtnm = request.getParameter("tnm");
+		strRace = request.getParameter("race");
+		strSplit = request.getParameter("split");
+		strGender = request.getParameter("gender");
+		strHistological=  request.getParameter("histological_type");
+		strGen = request.getParameter("gene");
 		String strSql = "";
 		ComFun fun = new ComFun();
 		BLCACom com = new BLCACom();
@@ -72,13 +72,13 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		if(!fun.isGetgenName(strGen))
 		{
 			strTip=fun.GetTip(4, "GSE48276", strGen, "BLCA");
-			request.setAttribute("txtGen", strGen);
-			request.setAttribute("ddlSurvival", strSurvival);
-			request.setAttribute("ddlSplit", strSplit);
-			request.setAttribute("tnmstage", strtnm);
-			request.setAttribute("ddlGender", strGender);
-			request.setAttribute("ddlRace", strRace);
-			request.setAttribute("ddlHistological", strHistological);
+			request.setAttribute("gene", strGen);
+			request.setAttribute("survival", strSurvival);
+			request.setAttribute("split", strSplit);
+			request.setAttribute("tnm", strtnm);
+			request.setAttribute("gender", strGender);
+			request.setAttribute("race", strRace);
+			request.setAttribute("histological_type", strHistological);
 			request.setAttribute("tip", strTip);
 			request.getRequestDispatcher("/BLCA/BLCA_GSE48276.jsp").forward(request, response);
 			return;
@@ -96,13 +96,13 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 			if(strGenIndex.equals("-1"))
 	        {
 				strTip=fun.GetTip(3, "GSE48276", strGen, "BLCA");
-				request.setAttribute("txtGen", strGen);
-				request.setAttribute("ddlSurvival", strSurvival);
-				request.setAttribute("ddlSplit", strSplit);
-				request.setAttribute("tnmstage", strtnm);
-				request.setAttribute("ddlGender", strGender);
-				request.setAttribute("ddlRace", strRace);
-				request.setAttribute("ddlHistological", strHistological);
+				request.setAttribute("gene", strGen);
+				request.setAttribute("survival", strSurvival);
+				request.setAttribute("split", strSplit);
+				request.setAttribute("tnm", strtnm);
+				request.setAttribute("gender", strGender);
+				request.setAttribute("race", strRace);
+				request.setAttribute("histological_type", strHistological);
 				request.setAttribute("tip", strTip);
 				request.getRequestDispatcher("/BLCA/BLCA_GSE48276.jsp").forward(request, response);
 				return;
@@ -372,13 +372,13 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 				//request.setAttribute("myimg", "");//����
 			//}
 			
-			request.setAttribute("txtGen", strGen);
-			request.setAttribute("ddlSurvival", strSurvival);
-			request.setAttribute("ddlSplit", strSplit);
-			request.setAttribute("tnmstage", strtnm);
-			request.setAttribute("ddlGender", strGender);
-			request.setAttribute("ddlRace", strRace);
-			request.setAttribute("ddlHistological", strHistological);
+			request.setAttribute("gene", strGen);
+			request.setAttribute("survival", strSurvival);
+			request.setAttribute("split", strSplit);
+			request.setAttribute("tnm", strtnm);
+			request.setAttribute("gender", strGender);
+			request.setAttribute("race", strRace);
+			request.setAttribute("histological_type", strHistological);
 			request.setAttribute("idref", stridrefs);
 			request.setAttribute("idref2", stridrefs2);
 			request.setAttribute("probe2", strPaths22);

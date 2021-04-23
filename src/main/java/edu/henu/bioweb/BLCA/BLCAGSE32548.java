@@ -54,13 +54,13 @@ public class BLCAGSE32548 extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
 
-        strSurvival = request.getParameter("ddlSurvival");
+        strSurvival = request.getParameter("survival");
         //strGenList=request.getParameter("mulGen");//��ȡ������
-        strtnm = request.getParameter("tnmstage");
-        strSplit = request.getParameter("ddlSplit");
-        strGender = request.getParameter("ddlGender");
-        strGen = request.getParameter("txtGen");
-        strHistological = request.getParameter("ddlHistological");
+        strtnm = request.getParameter("tnm");
+        strSplit = request.getParameter("split");
+        strGender = request.getParameter("gender");
+        strGen = request.getParameter("gene");
+        strHistological = request.getParameter("histological_type");
         String strSql = "";
         ComFun fun = new ComFun();
         BLCACom com = new BLCACom();
@@ -77,12 +77,12 @@ public class BLCAGSE32548 extends HttpServlet {
         }
         if (!fun.isGetgenName(strGen)) {
             strTip = fun.GetTip(4, "GSE32548", strGen, "BLCA");
-            request.setAttribute("txtGen", strGen);
-            request.setAttribute("ddlSurvival", strSurvival);
-            request.setAttribute("ddlSplit", strSplit);
-            request.setAttribute("tnmstage", strtnm);
-            request.setAttribute("ddlGender", strGender);
-            request.setAttribute("ddlHistological", strHistological);
+            request.setAttribute("gene", strGen);
+            request.setAttribute("survival", strSurvival);
+            request.setAttribute("split", strSplit);
+            request.setAttribute("tnm", strtnm);
+            request.setAttribute("gender", strGender);
+            request.setAttribute("histological_type", strHistological);
             request.setAttribute("tip", strTip);
             request.getRequestDispatcher("/BLCA/BLCA_GSE32548.jsp").forward(request, response);
             return;
@@ -91,12 +91,12 @@ public class BLCAGSE32548 extends HttpServlet {
             strGenIndex = fun.getGenIndex(strGen, "gen_GSE32548", "jdbc/SSBLCA");
             if (strGenIndex.equals("-1")) {
                 strTip = fun.GetTip(3, "GSE32548", strGen, "BLCA");
-                request.setAttribute("txtGen", strGen);
-                request.setAttribute("ddlSurvival", strSurvival);
-                request.setAttribute("ddlSplit", strSplit);
-                request.setAttribute("tnmstage", strtnm);
-                request.setAttribute("ddlGender", strGender);
-                request.setAttribute("ddlHistological", strHistological);
+                request.setAttribute("gene", strGen);
+                request.setAttribute("survival", strSurvival);
+                request.setAttribute("split", strSplit);
+                request.setAttribute("tnm", strtnm);
+                request.setAttribute("gender", strGender);
+                request.setAttribute("histological_type", strHistological);
                 request.setAttribute("tip", strTip);
                 request.getRequestDispatcher("/BLCA/BLCA_GSE32548.jsp").forward(request, response);
                 return;
@@ -284,12 +284,12 @@ public class BLCAGSE32548 extends HttpServlet {
             //request.setAttribute("myimg", "");//����
             //}
 
-            request.setAttribute("txtGen", strGen);
-            request.setAttribute("ddlSurvival", strSurvival);
-            request.setAttribute("ddlSplit", strSplit);
-            request.setAttribute("tnmstage", strtnm);
-            request.setAttribute("ddlGender", strGender);
-            request.setAttribute("ddlHistological", strHistological);
+            request.setAttribute("gene", strGen);
+            request.setAttribute("survival", strSurvival);
+            request.setAttribute("split", strSplit);
+            request.setAttribute("tnm", strtnm);
+            request.setAttribute("gender", strGender);
+            request.setAttribute("histological_type", strHistological);
             request.setAttribute("idref", stridrefs);
             request.setAttribute("idref2", stridrefs2);
             request.setAttribute("probe2", strPaths22);

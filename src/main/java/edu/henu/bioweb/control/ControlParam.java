@@ -16,7 +16,7 @@ public abstract class ControlParam {
     }
     public void render(PageContext pageContext) throws ServletException, IOException {
         pageContext.getRequest().setAttribute("param",this);
-        pageContext.include(jspTemplate,true);
+        pageContext.include(jspTemplate,false);
     }
     public static ControlParam fromCol(String tagName, List<String> colList){
         if(paramConstructorMap == null) {

@@ -115,7 +115,7 @@
                 <tr>
                     <td><span class="text-left lead">Gene symbol:</span></td>
                     <td>
-                    	<input type="text" class="form-control" name="txtGen" value="<%=(String)request.getAttribute("txtGen")!=null?(String)request.getAttribute("txtGen"):""%>" />
+                    	<input type="text" class="form-control" name="gene" value="<%=(String)request.getAttribute("gene")!=null?(String)request.getAttribute("gene"):""%>" />
                     </td>
                 </tr>
                 <tr>
@@ -131,7 +131,7 @@
                 <tr>
                     <td><span class="text-left lead">Survival:</span></td>
                     <td>
-                    	<select id="ddlSurvival" name="ddlSurvival" class="form-control" style="width:auto;">
+                    	<select id="survival" name="survival" class="form-control" style="width:auto;">
                     		<option value="0">OS</option>
                     		<option value="1">RFS</option>
                     	</select>
@@ -140,7 +140,7 @@
                 <tr>
                     <td><span class="text-left lead">Split patients by:</span></td>
                     <td>
-                    	<select id="ddlSplit" name="ddlSplit" class="form-control" style="width:auto;">                    		
+                    	<select id="split" name="split" class="form-control" style="width:auto;">
                     		<option value="1">Upper 25%</option>
                     		<option value="3">Upper 30%</option>
                     		<option value="4">Upper 50%</option>
@@ -159,7 +159,7 @@
                 <tr>
                     <td><span class="text-left lead">TNM:</span></td>
                     <td>
-                    	<select id="tnmstage" name="tnmstage" style="width:auto;" class="form-control">
+                    	<select id="tnm" name="tnm" style="width:auto;" class="form-control">
                     		<option value="0">All</option>
                     		<option value="1">Stage I</option>
                     		<option value="2">Stage II</option>
@@ -171,7 +171,7 @@
                 <tr>
                     <td><span class="text-left lead">Smoking:</span></td>
                     <td>
-                    	<select name="ddlTobacco" class="form-control" style="width:auto;" id="ddlTobacco">
+                    	<select name="smoking" class="form-control" style="width:auto;" id="smoking">
                     		<option value="5">All</option>
                     		<option value="0">Current smoker</option>
                     		<option value="1">Lifelong Non-smoker</option>
@@ -194,7 +194,7 @@
                 <tr>
                     <td><span class="text-left lead">Lymph:</span></td>
                     <td>
-                    	<select name="ddllymph" class="form-control" style="width:auto;" id="ddllymph">
+                    	<select name="lymph" class="form-control" style="width:auto;" id="lymph">
                     		<option value="2">All</option>
                     		<option value="1">Yes</option>
                     		<option value="0">No</option>
@@ -219,7 +219,7 @@
                 <tr>
                 	<td><span class="text-left lead">Race:</span></td>
                     <td>
-                    	<select name="ddlRace" class="form-control" style="width:auto;" id="ddlRace">
+                    	<select name="race" class="form-control" style="width:auto;" id="race">
                     		<option value="3">All</option>
                     		<option value="0">WHITE</option>
                     		<option value="1">ASIAN</option>
@@ -234,26 +234,26 @@
             
             
             <%
-            	String strtnm = (String)request.getAttribute("tnmstage");
+            	String strtnm = (String)request.getAttribute("tnm");
             	String strCountry = (String)request.getAttribute("ddlCountry");
-            	String strymph = (String)request.getAttribute("ddllymph");
+            	String strymph = (String)request.getAttribute("lymph");
             	String strAlcohol = (String)request.getAttribute("ddlAlcohol");
-            	String strTobacco = (String)request.getAttribute("ddlTobacco");
-            	String strSplit = (String)request.getAttribute("ddlSplit");
-            	String strSurvival = (String)request.getAttribute("ddlSurvival");
+            	String strTobacco = (String)request.getAttribute("smoking");
+            	String strSplit = (String)request.getAttribute("split");
+            	String strSurvival = (String)request.getAttribute("survival");
             	String strData = (String)request.getAttribute("ddldata");
-            	String strRace = (String)request.getAttribute("ddlRace");
+            	String strRace = (String)request.getAttribute("race");
             %>
 			<script type="text/javascript">
-			     var otnm=document.getElementById("tnmstage");
+			     var otnm=document.getElementById("tnm");
 			     var ocountry=document.getElementById("ddlCountry");
-			     var oymph=document.getElementById("ddllymph");
+			     var oymph=document.getElementById("lymph");
 			     var oalcolhol=document.getElementById("ddlAlcohol");
-			     var osmoking=document.getElementById("ddlTobacco");
-			     var osplit=document.getElementById("ddlSplit");
-			     var osurvival=document.getElementById("ddlSurvival");
+			     var osmoking=document.getElementById("smoking");
+			     var osplit=document.getElementById("split");
+			     var osurvival=document.getElementById("survival");
 			     var odata = document.getElementById("ddldata");
-			     var oRace = document.getElementById("ddlRace");
+			     var oRace = document.getElementById("race");
 			     var temptnm = "<%=strtnm%>";
 			     var tempcou ="<%=strCountry%>";
 			     var tempymph="<%=strymph%>";

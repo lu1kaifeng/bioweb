@@ -98,15 +98,15 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	request.setCharacterEncoding("UTF-8");
 	try 
 	{
-		strSurvival = request.getParameter("ddlSurvival");
-		strtnm = request.getParameter("tnmstage");
-		strSplit = request.getParameter("ddlSplit");
-		strSmoking = request.getParameter("ddlTobacco");
-		strGen = request.getParameter("txtGen");
-		strlymph = request.getParameter("ddllymph");
-		strGender = request.getParameter("ddlGender");
-		strRace = request.getParameter("ddlRace");
-		strHistological=  request.getParameter("ddlHistological");
+		strSurvival = request.getParameter("survival");
+		strtnm = request.getParameter("tnm");
+		strSplit = request.getParameter("split");
+		strSmoking = request.getParameter("smoking");
+		strGen = request.getParameter("gene");
+		strlymph = request.getParameter("lymph");
+		strGender = request.getParameter("gender");
+		strRace = request.getParameter("race");
+		strHistological=  request.getParameter("histological_type");
 		//strGenList=request.getParameter("mulGen");//��ȡ������
 		if(!strGen.equals("") && strGen != null){
 			strGen = strGen.toUpperCase();
@@ -121,14 +121,14 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			strTip32548 = " ";
 			strTip48075 = " ";
 			strTip48276 = " ";
-			request.setAttribute("txtGen", strGen);
-			request.setAttribute("ddlSurvival", strSurvival);
-			request.setAttribute("ddlSplit", strSplit);
-			request.setAttribute("tnmstage", strtnm);
-			request.setAttribute("ddlTobacco", strSmoking);
-			request.setAttribute("ddlGender", strGender);
-			request.setAttribute("ddllymph", strlymph);
-			request.setAttribute("ddlRace", strRace);
+			request.setAttribute("gene", strGen);
+			request.setAttribute("survival", strSurvival);
+			request.setAttribute("split", strSplit);
+			request.setAttribute("tnm", strtnm);
+			request.setAttribute("smoking", strSmoking);
+			request.setAttribute("gender", strGender);
+			request.setAttribute("lymph", strlymph);
+			request.setAttribute("race", strRace);
 			request.setAttribute("tip", strTip);
 			request.setAttribute("tiptcga", strTipTCGA);
 			request.setAttribute("tip13507", strTip13507);
@@ -502,14 +502,14 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		//{
 			//request.setAttribute("myimg", "");//����
 		//}
-		request.setAttribute("txtGen", strGen);
-		request.setAttribute("ddlSurvival", strSurvival);
-		request.setAttribute("ddlSplit", strSplit);
-		request.setAttribute("tnmstage", strtnm);
-		request.setAttribute("ddlTobacco", strSmoking);
-		request.setAttribute("ddlGender", strGender);
-		request.setAttribute("ddllymph", strlymph);
-		request.setAttribute("ddlRace", strRace);
+		request.setAttribute("gene", strGen);
+		request.setAttribute("survival", strSurvival);
+		request.setAttribute("split", strSplit);
+		request.setAttribute("tnm", strtnm);
+		request.setAttribute("smoking", strSmoking);
+		request.setAttribute("gender", strGender);
+		request.setAttribute("lymph", strlymph);
+		request.setAttribute("race", strRace);
 		/*request.setAttribute("tcga", strTCGA);//����
 		request.setAttribute("gse13507", strGSE13507);//����
 		request.setAttribute("gse19915", strGSE19915);//����

@@ -2,7 +2,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-
+<%@ taglib uri="/WEB-INF/control.tld" prefix="m" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="../Css/common.css" />
     <link rel="stylesheet" href="../Css/data.css" />
     <script type="text/JavaScript" src="../Js/jquery-1.7.2.min.js"></script>
-    <script type="text/JavaScript" src="../Js/common.js"></script>    
+    <script type="text/JavaScript" src="../Js/common.js"></script>
     <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../Css/menuStyle.css" rel="stylesheet" />
     <style type="text/css">
@@ -23,13 +23,13 @@
     <script type="text/JavaScript">
     function whenError(a){
     	a.style.display="none";
-        a.onerror=null;  
+        a.onerror=null;
     }
     function imgClick(a)
     {
     	//var srcvalue = $("#img").attr("src")
     	//if(srcvalue!=null & srcvalue!=''){
-    	  if(a!=null & a!=''){	
+    	  if(a!=null & a!=''){
     	      //$("#img").show();
     		a.style.display="block";
     	}else{
@@ -49,11 +49,11 @@
     		var strurl="/BLCA/geneList.jsp?id="+sel;
     		//var strurl="geneList.jsp?id="+sel;
     		workerId = window.open(strurl, "", paramers);
-    	}    	    
+    	}
     }
     function lyno(){
-    	var ddlstage = document.getElementById('tnmstage');
-    	var ddlly = document.getElementById('ddllymph');
+    	var ddlstage = document.getElementById('tnm');
+    	var ddlly = document.getElementById('lymph');
     	for(i=0;i<ddlstage.options.length;i++){
 		       if(ddlstage.options[i].value == '1')
 		       {
@@ -62,18 +62,23 @@
 		    		       if(ddlly.options[i].value == '0')
 		    		       {
 		    		    	   ddlly.options[i].selected = true;
-		    		    	   
+
 		    		       }
-		    		  }		   
-		    	   }   
+		    		  }
+		    	   }
 		       }
 		}
     }
-    </script>    
+    </script>
 </head>
 <body><div  style="font-size: 18px;background:#747070;">
+    <m:control param='<%=new ControlParam(new ArrayList<>()) {
+    @Override
+        public String getTagName() {
+            return "cum";
+        }}%>"/>
         <div class="container" style="padding:0;margin-left:0px;width:1200px;background-color:#747070;">
-            <div class="navbar-header" style="background-color:#747070;float:left;margin-left:0px;min-width:380px;padding:0;">                
+            <div class="navbar-header" style="background-color:#747070;float:left;margin-left:0px;min-width:380px;padding:0;">
                 <a class="navbar-brand">
                     <img src="../static/img/research.png" alt="Institute of Biotechnology" width="50" style="margin-top: -15px;" />
                 </a>
@@ -82,10 +87,10 @@
             <div style="min-width:780px;float:left;">
             <div style="min-width:780px;margin:auto;font-size:22px;background-color:#747070;padding-left:50px;">
                  <a class="colorNavulli" href="../Index.html" style="color:white">Home</a>
-                 <a class="colorNavulli" href="../members.html" style="color:white">Member</a>                    
-                 <a class="colorNavulli" href="../DatabaseList.jsp" style="color:white;background-color:black">LOGpc Database</a>                    
-                 <a class="colorNavulli" href="../results.html" style="color:white">Publication</a>                   
-                 <a class="colorNavulli" href="../NewsList.html" style="color:white">News</a>                
+                 <a class="colorNavulli" href="../members.html" style="color:white">Member</a>
+                 <a class="colorNavulli" href="../DatabaseList.jsp" style="color:white;background-color:black">LOGpc Database</a>
+                 <a class="colorNavulli" href="../results.html" style="color:white">Publication</a>
+                 <a class="colorNavulli" href="../NewsList.html" style="color:white">News</a>
             </div>
         </div>
         </div>
@@ -99,8 +104,8 @@
                </h4>
          </div>
          <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-             <div class="panel-body">             	
-             
+             <div class="panel-body">
+
              <form id="BLCACombinedForm" method="post" action="../BLCACombined">
              <table style="width:925px;border-collapse:separate; border-spacing:10px 10px;margin:auto;">
              	<tr>
@@ -109,8 +114,8 @@
                 <tr>
                     <td><span class="text-left lead">Gene symbol:</span></td>
                     <td>
-                    	<input type="text" class="form-control" id="txtGen" style="width:150px;display:inline" name="txtGen" value="<%=(String)request.getAttribute("txtGen")!=null?(String)request.getAttribute("txtGen"):""%>" />
-                    	
+                    	<input type="text" class="form-control" id="gene" style="width:150px;display:inline" name="gene" value="<%=(String)request.getAttribute("gene")!=null?(String)request.getAttribute("gene"):""%>" />
+
                     	<input type="hidden" id="mulGen" name="mulGen" value="-1" />
                     </td>
                 </tr>
@@ -132,7 +137,7 @@
                 <tr>
                     <td><span class="text-left lead">Survival:</span></td>
                     <td>
-                    	<select id="ddlSurvival" name="ddlSurvival" class="form-control" style="width:auto;">
+                    	<select id="survival" name="survival" class="form-control" style="width:auto;">
                     		<option value="0">OS</option>
                     		<option value="1">DFI</option>
                     		<option value="2">PFI</option>
@@ -143,14 +148,14 @@
                 <tr>
                     <td><span class="text-left lead">Split patients by:</span></td>
                     <td>
-                    	<select id="ddlSplit" name="ddlSplit" class="form-control" style="width:auto;">                    		
+                    	<select id="split" name="split" class="form-control" style="width:auto;">
                     		<option value="1">Upper 25%</option>
                     		<option value="3">Upper 30%</option>
                     		<option value="4">Upper 50%</option>
                     		<option value="5">Upper25% VS Lower 25%</option>
                     		<option value="6">Upper30% VS Lower 30%</option>
                     		<option value="0">Lower 25%</option>
-                    		<option value="2">Lower 30%</option>                    		
+                    		<option value="2">Lower 30%</option>
                     		<option value="7">Lower 50%</option>
                     		<option value="8">Trichotomy</option>
                     		<option value="9">Quartile</option>
@@ -160,7 +165,7 @@
                 <tr>
                     <td><span class="text-left lead">TNM:</span></td>
                     <td>
-                    	<select id="tnmstage" name="tnmstage" style="width:auto;" class="form-control" onchange="lyno(this)">
+                    	<select id="tnm" name="tnm" style="width:auto;" class="form-control" onchange="lyno(this)">
                     		<option value="0">All</option>
                     		<option value="1">Stage I</option>
                     		<option value="2">Stage II</option>
@@ -172,11 +177,11 @@
             </table>
              		</td>
              		<td style="border:black 1px solid;padding:10px">
-             		<table class="form1" style="border-collapse:separate; border-spacing:0px 10px;">            	 
+             		<table class="form1" style="border-collapse:separate; border-spacing:0px 10px;">
                 <tr>
                     <td><span class="text-left lead">Smoking:</span></td>
                     <td>
-                    	<select name="ddlTobacco" class="form-control" style="width:auto;" id="ddlTobacco">
+                    	<select name="smoking" class="form-control" style="width:auto;" id="smoking">
                     		<option value="5">All</option>
                     		<option value="0">Yes</option>
                     		<option value="1">No</option>
@@ -186,7 +191,7 @@
                 <tr>
                     <td><span class="text-left lead">Gender:</span></td>
                     <td>
-                    	<select name="ddlGender" class="form-control" style="width:auto;" id="ddlGender">
+                    	<select name="gender" class="form-control" style="width:auto;" id="gender">
                     		<option value="2">All</option>
                     		<option value="1">MALE</option>
                     		<option value="0">FEMALE</option>
@@ -196,7 +201,7 @@
                 <tr>
                     <td><span class="text-left lead">Lymph:</span></td>
                     <td>
-                    	<select name="ddllymph" class="form-control" style="width:auto;" id="ddllymph" onchange="lyno(this)">
+                    	<select name="lymph" class="form-control" style="width:auto;" id="lymph" onchange="lyno(this)">
                     		<option value="2">All</option>
                     		<option value="1">Yes</option>
                     		<option value="0">No</option>
@@ -206,7 +211,7 @@
                 <tr>
                 	<td><span class="text-left lead">Race:</span></td>
                     <td>
-                    	<select name="ddlRace" class="form-control" style="width:auto;" id="ddlRace">
+                    	<select name="race" class="form-control" style="width:auto;" id="race">
                     		<option value="3">All</option>
                     		<option value="0">WHITE</option>
                     		<option value="1">ASIAN</option>
@@ -217,7 +222,7 @@
                 <tr>
                     <td><span class="text-left lead">Histological type:</span></td>
                     <td>
-                    	<select name="ddlHistological" class="form-control" style="width:auto;" id="ddlHistological">
+                    	<select name="histological_type" class="form-control" style="width:auto;" id="histological_type">
                     		<option value="0">All</option>
                     		<option value="1">MIBC</option>
                     		<option value="2">NMIBC</option>
@@ -229,32 +234,32 @@
              	</tr>
              </table>
             <%
-            	String strtnm = (String)request.getAttribute("tnmstage");
-            	String strymph = (String)request.getAttribute("ddllymph");
-            	String strGender = (String)request.getAttribute("ddlGender");
-            	String strTobacco = (String)request.getAttribute("ddlTobacco");
-            	String strSplit = (String)request.getAttribute("ddlSplit");
-            	String strSurvival = (String)request.getAttribute("ddlSurvival");
+            	String strtnm = (String)request.getAttribute("tnm");
+            	String strymph = (String)request.getAttribute("lymph");
+            	String strGender = (String)request.getAttribute("gender");
+            	String strTobacco = (String)request.getAttribute("smoking");
+            	String strSplit = (String)request.getAttribute("split");
+            	String strSurvival = (String)request.getAttribute("survival");
             	String strData = (String)request.getAttribute("ddldata");
-            	String strRace = (String)request.getAttribute("ddlRace");
-            	String strHistological = (String)request.getAttribute("ddlHistological");
+            	String strRace = (String)request.getAttribute("race");
+            	String strHistological = (String)request.getAttribute("histological_type");
             %>
 			<script type="text/javascript">
-			     var otnm=document.getElementById("tnmstage");
-			     var oymph=document.getElementById("ddllymph");
-			     var ogender=document.getElementById("ddlGender");
-			     var osmoking=document.getElementById("ddlTobacco");
-			     var osplit=document.getElementById("ddlSplit");
-			     var osurvival=document.getElementById("ddlSurvival");
+			     var otnm=document.getElementById("tnm");
+			     var oymph=document.getElementById("lymph");
+			     var ogender=document.getElementById("gender");
+			     var osmoking=document.getElementById("smoking");
+			     var osplit=document.getElementById("split");
+			     var osurvival=document.getElementById("survival");
 			     var odata = document.getElementById("ddldata");
-			     var oRace = document.getElementById("ddlRace");
-			     var oHistological=document.getElementById("ddlHistological");
+			     var oRace = document.getElementById("race");
+			     var oHistological=document.getElementById("histological_type");
 			     var temptnm = "<%=strtnm%>";
 			     var tempymph="<%=strymph%>";
 			     var tempal ="<%=strGender%>";
 			     var tempsmok="<%=strTobacco%>";
 			     var tempsplit ="<%=strSplit%>";
-			     var tempsuv="<%=strSurvival%>";	
+			     var tempsuv="<%=strSurvival%>";
 			     var tempdata="<%=strData%>";
 			     var tempRace="<%=strRace%>";
 			     var tempHistological="<%=strHistological%>";
@@ -270,37 +275,37 @@
 				       {
 				    	   oymph.options[i].selected = true;
 				       }
-				  }	
+				  }
 			     for(i=0;i<oHistological.options.length;i++){
 				       if(oHistological.options[i].value == tempHistological)
 				       {
 				    	   oHistological.options[i].selected = true;
 				       }
-				  }	
+				  }
 			     for(i=0;i<ogender.options.length;i++){
 				       if(ogender.options[i].value == tempal)
 				       {
 				    	   ogender.options[i].selected = true;
 				       }
-				  }	
+				  }
 			     for(i=0;i<osmoking.options.length;i++){
 				       if(osmoking.options[i].value == tempsmok)
 				       {
 				    	   osmoking.options[i].selected = true;
 				       }
-				  }	
+				  }
 			     for(i=0;i<osplit.options.length;i++){
 				       if(osplit.options[i].value == tempsplit)
 				       {
 				    	   osplit.options[i].selected = true;
 				       }
-				  }	
+				  }
 			     for(i=0;i<osurvival.options.length;i++){
 				       if(osurvival.options[i].value == tempsuv)
 				       {
 				    	   osurvival.options[i].selected = true;
 				       }
-				  }	
+				  }
 			     for(i=0;i<odata.options.length;i++){
 			    	 if(odata.options[i].value==tempdata)
 			    	 {
@@ -313,7 +318,7 @@
 			    		 oRace.options[i].selected=true;
 			    	 }
 		    	 }
-			</script> 
+			</script>
     <div style="margin:auto;width:1000px;font-size:18px;text-align:center">
     Please keep in mind:<br />
     More categorical variables you select would <span style="font-weight:bolder;">decrease</span> the number of utilizable patients for prognosis analysis.

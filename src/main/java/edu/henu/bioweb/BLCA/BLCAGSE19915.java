@@ -55,23 +55,23 @@ public class BLCAGSE19915   extends HttpServlet{
 		ComFun fun = new ComFun();
 		try 
 		{
-			strSurvival = request.getParameter("ddlSurvival");
+			strSurvival = request.getParameter("survival");
 			//strGenList=request.getParameter("mulGen");
-			strtnm = request.getParameter("tnmstage");
-			strSplit = request.getParameter("ddlSplit");
-			strGen = request.getParameter("txtGen");
-			strHistological=  request.getParameter("ddlHistological");
+			strtnm = request.getParameter("tnm");
+			strSplit = request.getParameter("split");
+			strGen = request.getParameter("gene");
+			strHistological=  request.getParameter("histological_type");
 			if(!strGen.equals("") && strGen != null){
 				strGen = strGen.toUpperCase();
 			}
 			if(!fun.isGetgenName(strGen))
 			{
 				strTip=fun.GetTip(4, "GSE19915", strGen, "BLCA");
-				request.setAttribute("txtGen", strGen);
-				request.setAttribute("ddlSurvival", strSurvival);
-				request.setAttribute("ddlSplit", strSplit);
-				request.setAttribute("tnmstage", strtnm);
-				request.setAttribute("ddlHistological", strHistological);
+				request.setAttribute("gene", strGen);
+				request.setAttribute("survival", strSurvival);
+				request.setAttribute("split", strSplit);
+				request.setAttribute("tnm", strtnm);
+				request.setAttribute("histological_type", strHistological);
 				request.setAttribute("tip", strTip);
 				request.getRequestDispatcher("/BLCA/BLCA_GSE19915.jsp").forward(request, response);
 				return;
@@ -158,11 +158,11 @@ public class BLCAGSE19915   extends HttpServlet{
 			//{
 				//request.setAttribute("myimg", "");//����
 			//}
-			request.setAttribute("txtGen", strGen);
-			request.setAttribute("ddlSurvival", strSurvival);
-			request.setAttribute("ddlSplit", strSplit);
-			request.setAttribute("tnmstage", strtnm);
-			request.setAttribute("ddlHistological", strHistological);
+			request.setAttribute("gene", strGen);
+			request.setAttribute("survival", strSurvival);
+			request.setAttribute("split", strSplit);
+			request.setAttribute("tnm", strtnm);
+			request.setAttribute("histological_type", strHistological);
 			request.setAttribute("tip", strTip);
 			request.getRequestDispatcher("/BLCA/BLCA_GSE19915.jsp").forward(request, response);
 		}

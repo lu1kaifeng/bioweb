@@ -45,7 +45,7 @@
                 <tr>
                     <td><span class="ziti">Gene symbol:</span></td>
                     <td>
-                    	<input type="text" class="inputText" name="txtGen" value="<%=(String)request.getAttribute("txtGen")!=null?(String)request.getAttribute("txtGen"):""%>" />
+                    	<input type="text" class="inputText" name="gene" value="<%=(String)request.getAttribute("gene")!=null?(String)request.getAttribute("gene"):""%>" />
                     	<input type="submit" value="IDREF" style="width:50px;height:25px;font-size:12px;" class="plotBut" />
                     </td>
                 </tr>
@@ -85,7 +85,7 @@
                 <tr>
                     <td><span class="ziti">Survival:</span></td>
                     <td>
-                    	<select id="ddlSurvival" name="ddlSurvival" class="sec1">
+                    	<select id="survival" name="survival" class="sec1">
                     		<option value="0">OS</option>
                     	</select>
                      </td>
@@ -97,7 +97,7 @@
             	<tr>
                     <td><span class="ziti">Spilt patients by:</span></td>
                     <td>
-                    	<select id="ddlSplit" name="ddlSplit" class="sec1">
+                    	<select id="split" name="split" class="sec1">
                     		<option value="0">Lower 25%</option>
                     		<option value="1">Upper 25%</option>
                     	</select>
@@ -106,7 +106,7 @@
             	<tr>
                     <td><span class="ziti">TNM:</span></td>
                     <td>
-                    	<select id="tnmstage" name="tnmstage" class="sec1">
+                    	<select id="tnm" name="tnm" class="sec1">
                     		<option value="0">All</option>
                     		<option value="1">I</option>
                     		<option value="2">II</option>
@@ -117,7 +117,7 @@
                 <tr>
                     <td><span class="ziti">Smoking:</span></td>
                     <td>
-                    	<select name="ddlTobacco" class="sec1" id="ddlTobacco">
+                    	<select name="smoking" class="sec1" id="smoking">
                     		<option value="2">All</option>                    		
                     		<option value="1">Yes</option>
                     		<option value="0">No</option>
@@ -139,21 +139,21 @@
     </div>
     
     		<%
-            	String strtnm = (String)request.getAttribute("tnmstage");
+            	String strtnm = (String)request.getAttribute("tnm");
             	String strAlcohol = (String)request.getAttribute("ddlAlcohol");
-            	String strTobacco = (String)request.getAttribute("ddlTobacco");
-            	String strSplit = (String)request.getAttribute("ddlSplit");
-            	String strSurvival = (String)request.getAttribute("ddlSurvival");
+            	String strTobacco = (String)request.getAttribute("smoking");
+            	String strSplit = (String)request.getAttribute("split");
+            	String strSurvival = (String)request.getAttribute("survival");
             	String strData = (String)request.getAttribute("ddldata");            	
             %>
 			<script type="text/javascript">
-			     var otnm=document.getElementById("tnmstage");
+			     var otnm=document.getElementById("tnm");
 			     var ocountry=document.getElementById("ddlCountry");
-			     var oymph=document.getElementById("ddllymph");
+			     var oymph=document.getElementById("lymph");
 			     var oalcolhol=document.getElementById("ddlAlcohol");
-			     var osmoking=document.getElementById("ddlTobacco");
-			     var osplit=document.getElementById("ddlSplit");
-			     var osurvival=document.getElementById("ddlSurvival");
+			     var osmoking=document.getElementById("smoking");
+			     var osplit=document.getElementById("split");
+			     var osurvival=document.getElementById("survival");
 			     var odata = document.getElementById("ddldata");
 			     var temptnm = "<%=strtnm%>";
 			     var tempal ="<%=strAlcohol%>";

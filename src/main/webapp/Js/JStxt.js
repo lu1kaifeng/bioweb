@@ -133,5 +133,5 @@
             this.pop.getElementsByTagName('ul')[0].innerHTML = li.join('');
             this.pop.style.display = 'block';
         }
-    }).init().bind(document.getElementById('txtGen'));
+    }).init().bind(document.getElementById('gene'));
 }

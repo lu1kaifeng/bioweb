@@ -60,31 +60,31 @@ public class BLCATCGA  extends HttpServlet{
 		ComFun fun = new ComFun();
 		try 
 		{
-			strSurvival = request.getParameter("ddlSurvival");
-			strlymph = request.getParameter("ddllymph");
+			strSurvival = request.getParameter("survival");
+			strlymph = request.getParameter("lymph");
 			//strGenList=request.getParameter("mulGen");
-			strtnm = request.getParameter("tnmstage");
-			strSplit = request.getParameter("ddlSplit");
-			strSmoking = request.getParameter("ddlTobacco");
-			strGender = request.getParameter("ddlGender");
-			strGen = request.getParameter("txtGen");
-			strRace =  request.getParameter("ddlRace");
-			strHistological=  request.getParameter("ddlHistological");
+			strtnm = request.getParameter("tnm");
+			strSplit = request.getParameter("split");
+			strSmoking = request.getParameter("smoking");
+			strGender = request.getParameter("gender");
+			strGen = request.getParameter("gene");
+			strRace =  request.getParameter("race");
+			strHistological=  request.getParameter("histological_type");
 			if(!strGen.equals("") && strGen != null){
 				strGen = strGen.toUpperCase();
 			}
 			if(!fun.isGetgenName(strGen))
 			{
 				strTip=fun.GetTip(4, "TCGA", strGen, "BLCA");
-				request.setAttribute("txtGen", strGen);
-				request.setAttribute("ddlSurvival", strSurvival);
-				request.setAttribute("ddlSplit", strSplit);
-				request.setAttribute("tnmstage", strtnm);
-				request.setAttribute("ddlTobacco", strSmoking);
-				request.setAttribute("ddlGender", strGender);
-				request.setAttribute("ddllymph", strlymph);
-				request.setAttribute("ddlHistological", strHistological);
-				request.setAttribute("ddlRace", strRace);
+				request.setAttribute("gene", strGen);
+				request.setAttribute("survival", strSurvival);
+				request.setAttribute("split", strSplit);
+				request.setAttribute("tnm", strtnm);
+				request.setAttribute("smoking", strSmoking);
+				request.setAttribute("gender", strGender);
+				request.setAttribute("lymph", strlymph);
+				request.setAttribute("histological_type", strHistological);
+				request.setAttribute("race", strRace);
 				request.setAttribute("tip", strTip);
 				request.getRequestDispatcher("/BLCA/BLCAList.jsp").forward(request, response);
 	        	return;
@@ -97,15 +97,15 @@ public class BLCATCGA  extends HttpServlet{
 				if(strGenIndex.equals("-1"))
 	            {
 					strTip=fun.GetTip(3, "TCGA", strGen, "BLCA");
-					request.setAttribute("txtGen", strGen);
-					request.setAttribute("ddlSurvival", strSurvival);
-					request.setAttribute("ddlSplit", strSplit);
-					request.setAttribute("tnmstage", strtnm);
-					request.setAttribute("ddlTobacco", strSmoking);
-					request.setAttribute("ddlGender", strGender);
-					request.setAttribute("ddllymph", strlymph);
-					request.setAttribute("ddlHistological", strHistological);
-					request.setAttribute("ddlRace", strRace);
+					request.setAttribute("gene", strGen);
+					request.setAttribute("survival", strSurvival);
+					request.setAttribute("split", strSplit);
+					request.setAttribute("tnm", strtnm);
+					request.setAttribute("smoking", strSmoking);
+					request.setAttribute("gender", strGender);
+					request.setAttribute("lymph", strlymph);
+					request.setAttribute("histological_type", strHistological);
+					request.setAttribute("race", strRace);
 					request.setAttribute("tip", strTip);
 					request.getRequestDispatcher("/BLCA/BLCAList.jsp").forward(request, response);
 		        	return;
@@ -252,15 +252,15 @@ public class BLCATCGA  extends HttpServlet{
 			//{
 				//request.setAttribute("myimg", "");//����
 			//}
-			request.setAttribute("txtGen", strGen);
-			request.setAttribute("ddlSurvival", strSurvival);
-			request.setAttribute("ddlSplit", strSplit);
-			request.setAttribute("tnmstage", strtnm);
-			request.setAttribute("ddlTobacco", strSmoking);
-			request.setAttribute("ddlGender", strGender);
-			request.setAttribute("ddllymph", strlymph);
-			request.setAttribute("ddlHistological", strHistological);
-			request.setAttribute("ddlRace", strRace);
+			request.setAttribute("gene", strGen);
+			request.setAttribute("survival", strSurvival);
+			request.setAttribute("split", strSplit);
+			request.setAttribute("tnm", strtnm);
+			request.setAttribute("smoking", strSmoking);
+			request.setAttribute("gender", strGender);
+			request.setAttribute("lymph", strlymph);
+			request.setAttribute("histological_type", strHistological);
+			request.setAttribute("race", strRace);
 			request.setAttribute("tip", strTip);
 			request.getRequestDispatcher("/BLCA/BLCAList.jsp").forward(request, response);
 		}

@@ -57,7 +57,7 @@
                 <tr>
                     <td><span class="text-left lead">Gene symbol:</span></td>
                     <td>
-                    	<input type="form-control" class="form-control" name="txtGen" value="<%=(String)request.getAttribute("txtGen")!=null?(String)request.getAttribute("txtGen"):""%>" />
+                    	<input type="form-control" class="form-control" name="gene" value="<%=(String)request.getAttribute("gene")!=null?(String)request.getAttribute("gene"):""%>" />
                     </td>
                 </tr>
                 <tr>
@@ -82,7 +82,7 @@
                 <tr>
                     <td><span class="text-left lead">Survival:</span></td>
                     <td>
-                    	<select id="ddlSurvival" style="width:auto;"  name="ddlSurvival" class="form-control">
+                    	<select id="survival" style="width:auto;"  name="survival" class="form-control">
                     		<option value="0">OS</option>
                     	</select>
                      </td>
@@ -90,7 +90,7 @@
                 <tr>
                     <td><span class="text-left lead">Split patients by:</span></td>
                     <td>
-                    	<select id="ddlSplit" style="width:auto;"  name="ddlSplit" class="form-control">
+                    	<select id="split" style="width:auto;"  name="split" class="form-control">
                     		<option value="1">Upper 25%</option>
                     		<option value="3">Upper 30%</option>
                     		<option value="4">Upper 50%</option>
@@ -109,7 +109,7 @@
             	<tr>
                     <td><span class="text-left lead">TNM:</span></td>
                     <td>
-                    	<select id="tnmstage" name="tnmstage" class="form-control">
+                    	<select id="tnm" name="tnm" class="form-control">
                     		<option value="0">All</option>
                     		<option value="1">Stage I</option>
                     		<option value="2">Stage II</option>
@@ -120,7 +120,7 @@
                 <tr>
                     <td><span class="text-left lead">Smoking:</span></td>
                     <td>
-                    	<select name="ddlTobacco" class="form-control" id="ddlTobacco">
+                    	<select name="smoking" class="form-control" id="smoking">
                     		<option value="2">All</option>                    		
                     		<option value="1">Yes</option>
                     		<option value="0">No</option>
@@ -149,7 +149,7 @@
                 <tr>
                 	<td><span class="text-left lead">Race:</span></td>
                     <td>
-                    	<select name="ddlRace" class="form-control" style="width:auto;" id="ddlRace">
+                    	<select name="race" class="form-control" style="width:auto;" id="race">
                     		<option value="1">ASIAN</option>
                     	</select>
                     </td>
@@ -163,21 +163,21 @@
             
     
     		<%
-            	String strtnm = (String)request.getAttribute("tnmstage");
+            	String strtnm = (String)request.getAttribute("tnm");
             	String strAlcohol = (String)request.getAttribute("ddlAlcohol");
-            	String strTobacco = (String)request.getAttribute("ddlTobacco");
-            	String strSplit = (String)request.getAttribute("ddlSplit");
-            	String strSurvival = (String)request.getAttribute("ddlSurvival");
+            	String strTobacco = (String)request.getAttribute("smoking");
+            	String strSplit = (String)request.getAttribute("split");
+            	String strSurvival = (String)request.getAttribute("survival");
             	String strData = (String)request.getAttribute("ddldata");
             %>
 			<script type="text/javascript">
-			     var otnm=document.getElementById("tnmstage");
+			     var otnm=document.getElementById("tnm");
 			     var ocountry=document.getElementById("ddlCountry");
-			     var oymph=document.getElementById("ddllymph");
+			     var oymph=document.getElementById("lymph");
 			     var oalcolhol=document.getElementById("ddlAlcohol");
-			     var osmoking=document.getElementById("ddlTobacco");
-			     var osplit=document.getElementById("ddlSplit");
-			     var osurvival=document.getElementById("ddlSurvival");
+			     var osmoking=document.getElementById("smoking");
+			     var osplit=document.getElementById("split");
+			     var osurvival=document.getElementById("survival");
 			     var odata = document.getElementById("ddldata");
 			     var temptnm = "<%=strtnm%>";
 			     var tempal ="<%=strAlcohol%>";

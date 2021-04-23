@@ -16,10 +16,10 @@
  	}
     window.opener.document.getElementById("leader").innerHTML = s;
     window.opener.document.getElementById("mulGen").value = s;
-    window.opener.document.getElementById('txtGen').setAttribute('readonly','readonly');    
+    window.opener.document.getElementById('gene').setAttribute('readonly','readonly');
     if(s=="" || s==null){
     	window.opener.document.getElementById("mulGen").value = "-1";
-    	window.opener.document.getElementById('txtGen').removeAttribute('readonly');
+    	window.opener.document.getElementById('gene').removeAttribute('readonly');
     }
 	window.close();
 } 

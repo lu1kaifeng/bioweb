@@ -3,10 +3,13 @@
     margin: 0;
     padding: 0;
 }
-.inputText
-{
-    width: 165px;height: 25px;background-color: #FFFFFF;
+
+.inputText {
+    width: 165px;
+    height: 25px;
+    background-color: #FFFFFF;
 }
+
 body {
     font-size: 13px;
     font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -97,7 +100,17 @@ img {
     line-height: 40px;
 }
 
-.top-search-wrap .top-search .logo2{display:block;width:517px;height:30px;margin-top:0px;margin-left:50px;font-size: 16px;color: #ffffff;line-height: 30px;}
+.top-search-wrap .top-search .logo2 {
+    display: block;
+    width: 517px;
+    height: 30px;
+    margin-top: 0px;
+    margin-left: 50px;
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 30px;
+}
+
 .top-search-wrap .top-search .search-wrap {
     width: 170px;
     height: 20px;
@@ -180,5 +193,5 @@ img {
     line-height: 53px;
     color: #ffffff;
     margin: 0 auto;
-    text-align:center;
+    text-align: center;
 }

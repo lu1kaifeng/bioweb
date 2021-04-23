@@ -20,8 +20,8 @@ public class RPlot {
 
     @Override
     public String toString() {
-        if(bytes != null)
-           return "data:image/png;base64," + new String(new Base64().encode(bytes));
+        if (bytes != null)
+            return "data:image/png;base64," + new String(new Base64().encode(bytes));
         else
             return "data:image/png;base64,";
     }

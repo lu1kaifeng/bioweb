@@ -5,8 +5,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+
 public class ProgressMonitorTest {
-	public void useProgressMonitor(JFrame frame, String copyPath, String newPath) {
+    public void useProgressMonitor(JFrame frame, String copyPath, String newPath) {
         try {
             File file = new File(copyPath); // ����Ҫ���Ƶ��ļ�����File����
             File newFile = new File(newPath); // ���ݸ��ƺ��ļ��ı����ַ����File����

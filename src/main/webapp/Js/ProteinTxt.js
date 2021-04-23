@@ -14,7 +14,8 @@ window.onload = function () {
             var self = this;
             x.onkeyup = function (e) {
                 e = e || window.event;
-                var lis = self.pop.getElementsByTagName('li'), lens = self.pop.getElementsByTagName('li').length, n = lens, temp;
+                var lis = self.pop.getElementsByTagName('li'), lens = self.pop.getElementsByTagName('li').length,
+                    n = lens, temp;
                 if (e.keyCode == 38) { //����up�������� 
                     if (self.pop.style.display != 'none') {
                         for (var i = 0; i < lens; i++) { //����������ݣ��ж��Ƿ�ѡ�� 
@@ -67,13 +68,16 @@ window.onload = function () {
                     self.insert(this);
             };
             x.onblur = function () { //����ӳٴ�������Ϊ���ʧȥ�����ʱ���ǵ��ѡ�����ݵ�ʱ��ᷢ�����޷���������¼� 
-                setTimeout(function () { self.pop.style.display = 'none'; }, 300);
+                setTimeout(function () {
+                    self.pop.style.display = 'none';
+                }, 300);
             };
             return this;
         },
         setDom: function () {
             var self = this;
-            var dom = document.createElement('div'), frame = document.createElement('iframe'), ul = document.createElement('ul');
+            var dom = document.createElement('div'), frame = document.createElement('iframe'),
+                ul = document.createElement('ul');
             document.body.appendChild(dom);
             with (frame) { //������ie6����סselectԪ�� 
                 setAttribute('frameborder', '0');
@@ -103,9 +107,9 @@ window.onload = function () {
             this.pop = dom;
         },
         insert: function (self) {
-            var bak = [], s, li = [], left = 0, top = 0, val = self.value;            
+            var bak = [], s, li = [], left = 0, top = 0, val = self.value;
             for (var i = 0, leng = this.source.length; i < leng; i++) { //�ж�input�������Ƿ�������Դ�������һ�� 
-            	if(!!val&&val.length<=this.source[i].length && (this.source[i].substr(0,val.length) == val || this.source[i].substr(0,val.length) == val.toUpperCase())){
+                if (!!val && val.length <= this.source[i].length && (this.source[i].substr(0, val.length) == val || this.source[i].substr(0, val.length) == val.toUpperCase())) {
                     bak.push(this.source[i]);
                 }
             }

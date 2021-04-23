@@ -1,6 +1,5 @@
 package edu.henu.bioweb.BLCA;
 
-import com.mysql.cj.protocol.a.result.TextBufferRow;
 import edu.henu.bioweb.control.ControlParam;
 
 import javax.naming.Context;
@@ -12,22 +11,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class BLCAFront extends HttpServlet {
-    List<String> listCol =  new ArrayList<>();
-    Map<String,String> eventMap = new HashMap<>();
-    public BLCAFront(){
+    List<String> listCol = new ArrayList<>();
+    Map<String, String> eventMap = new HashMap<>();
+
+    public BLCAFront() {
         super();
         listCol.add("perid");
         listCol.add("GSM");
@@ -62,7 +60,8 @@ public class BLCAFront extends HttpServlet {
         listCol.add("EFS_Event");
 
     }
-    private List<ControlParam> getCols(String dbName, String sampleName){
+
+    private List<ControlParam> getCols(String dbName, String sampleName) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -74,13 +73,13 @@ public class BLCAFront extends HttpServlet {
 
         Context initCtx;
         Context ctx;
-        Object  obj;
+        Object obj;
         DataSource ds = null;
         try {
             initCtx = new InitialContext();
-            ctx = (Context)initCtx.lookup("java:comp/env");
-            obj = (Object)ctx.lookup("jdbc/SS"+dbName.toUpperCase());//jdbc/SSBRCA2
-            ds = (DataSource)obj;
+            ctx = (Context) initCtx.lookup("java:comp/env");
+            obj = (Object) ctx.lookup("jdbc/SS" + dbName.toUpperCase());//jdbc/SSBRCA2
+            ds = (DataSource) obj;
 
         } catch (NamingException e) {
             e.printStackTrace();
@@ -90,13 +89,13 @@ public class BLCAFront extends HttpServlet {
             conn = ds.getConnection();
             stmt = conn.createStatement();
             ArrayList<String> cols = new ArrayList<>();
-            rs = stmt.executeQuery("describe sample_"+sampleName.toLowerCase());
-            while(rs.next()){
+            rs = stmt.executeQuery("describe sample_" + sampleName.toLowerCase());
+            while (rs.next()) {
                 cols.add(rs.getString(1));
             }
             cols.add("survival");
             cols.add("split");
-            return cols.stream().filter(s -> !listCol.contains(s)).map((String s)->ControlParam.fromCol(s,cols)).collect(Collectors.toList());
+            return cols.stream().filter(s -> !listCol.contains(s)).map((String s) -> ControlParam.fromCol(s, cols)).collect(Collectors.toList());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             return null;
@@ -109,12 +108,12 @@ public class BLCAFront extends HttpServlet {
         String pathInfo = req.getPathInfo(); // /{value}/test
         String[] pathParts = pathInfo.split("/");
         String dbName = pathParts[1]; // {value}
-        if(pathParts.length > 2) {
+        if (pathParts.length > 2) {
             String sample = pathParts[2]; // test
-            List<ControlParam> cols = getCols(dbName,sample);
-            req.setAttribute("controls",cols);
-            req.setAttribute("dbName",dbName);
-            req.setAttribute("sample",sample);
+            List<ControlParam> cols = getCols(dbName, sample);
+            req.setAttribute("controls", cols);
+            req.setAttribute("dbName", dbName);
+            req.setAttribute("sample", sample);
             req.getRequestDispatcher("/plot.jsp").forward(req, resp);
         }
     }

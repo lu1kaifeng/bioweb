@@ -14,7 +14,8 @@
             var self = this;
             x.onkeyup = function (e) {
                 e = e || window.event;
-                var lis = self.pop.getElementsByTagName('li'), lens = self.pop.getElementsByTagName('li').length, n = lens, temp;
+                var lis = self.pop.getElementsByTagName('li'), lens = self.pop.getElementsByTagName('li').length,
+                    n = lens, temp;
                 if (e.keyCode == 38) { //键盘up键被按下 
                     if (self.pop.style.display != 'none') {
                         for (var i = 0; i < lens; i++) { //遍历结果数据，判断是否被选中 
@@ -67,13 +68,16 @@
                     self.insert(this);
             };
             x.onblur = function () { //这个延迟处理是因为如果失去焦点的时候是点击选中数据的时候会发现先无法触发点击事件 
-                setTimeout(function () { self.pop.style.display = 'none'; }, 300);
+                setTimeout(function () {
+                    self.pop.style.display = 'none';
+                }, 300);
             };
             return this;
         },
         setDom: function () {
             var self = this;
-            var dom = document.createElement('div'), frame = document.createElement('iframe'), ul = document.createElement('ul');
+            var dom = document.createElement('div'), frame = document.createElement('iframe'),
+                ul = document.createElement('ul');
             document.body.appendChild(dom);
             with (frame) { //用来在ie6下遮住select元素 
                 setAttribute('frameborder', '0');

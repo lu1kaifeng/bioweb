@@ -13,19 +13,58 @@ public abstract class ControlParam {
     public ControlParam(List<String> colList, String jspTemplate) {
         this.jspTemplate = jspTemplate;
     }
-
+    static {
+        paramConstructorMap = new HashMap<>();
+        paramConstructorMap.put("gender", new IFunctionalParamConstructor() {
+            @Override
+            public ControlParam constructor(List<String> colList) {
+                return new GenderParam(colList, "/control/gender.jsp");
+            }
+        });
+        paramConstructorMap.put("histological_type", new IFunctionalParamConstructor() {
+            @Override
+            public ControlParam constructor(List<String> colList) {
+                return  new HistologicalTypeParam(colList, "/control/histological_type.jsp");
+            }
+        });
+        paramConstructorMap.put("survival", new IFunctionalParamConstructor() {
+            @Override
+            public ControlParam constructor(List<String> colList) {
+                return new SurvivalParam(colList, "/control/survival.jsp");
+            }
+        });
+        paramConstructorMap.put("lymph", new IFunctionalParamConstructor() {
+            @Override
+            public ControlParam constructor(List<String> colList) {
+                return new LymphParam(colList, "/control/lymph.jsp");
+            }
+        });
+        paramConstructorMap.put("race", new IFunctionalParamConstructor() {
+            @Override
+            public ControlParam constructor(List<String> colList) {
+                return new RaceParam(colList, "/control/race.jsp");
+            }
+        });
+        paramConstructorMap.put("smoking", new IFunctionalParamConstructor() {
+            @Override
+            public ControlParam constructor(List<String> colList) {
+                return new SmokingParam(colList, "/control/smoking.jsp");
+            }
+        } );
+        paramConstructorMap.put("split", new IFunctionalParamConstructor() {
+            @Override
+            public ControlParam constructor(List<String> colList) {
+                return new SplitParam(colList, "/control/split.jsp");
+            }
+        });
+        paramConstructorMap.put("tnm", new IFunctionalParamConstructor() {
+            @Override
+            public ControlParam constructor(List<String> colList) {
+                return new TNMParam(colList, "/control/tnm.jsp");
+            }
+        });
+    }
     public static ControlParam fromCol(String tagName, List<String> colList) {
-        if (paramConstructorMap == null) {
-            paramConstructorMap = new HashMap<>();
-            paramConstructorMap.put("gender", (c) -> new GenderParam(c, "/control/gender.jsp"));
-            paramConstructorMap.put("histological_type", (c) -> new HistologicalTypeParam(c, "/control/histological_type.jsp"));
-            paramConstructorMap.put("survival", (c) -> new SurvivalParam(c, "/control/survival.jsp"));
-            paramConstructorMap.put("lymph", (c) -> new LymphParam(c, "/control/lymph.jsp"));
-            paramConstructorMap.put("race", (c) -> new RaceParam(c, "/control/race.jsp"));
-            paramConstructorMap.put("smoking", (c) -> new SmokingParam(c, "/control/smoking.jsp"));
-            paramConstructorMap.put("split", (c) -> new SplitParam(c, "/control/split.jsp"));
-            paramConstructorMap.put("tnm", (c) -> new TNMParam(c, "/control/tnm.jsp"));
-        }
         return paramConstructorMap.get(tagName).constructor(colList);
     }
 

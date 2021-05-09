@@ -1,5 +1,6 @@
 package edu.henu.bioweb.BLCA;
 
+import edu.henu.bioweb.Functional;
 import edu.henu.bioweb.control.ControlParam;
 
 import javax.naming.Context;
@@ -88,14 +89,24 @@ public class BLCAFront extends HttpServlet {
         try {
             conn = ds.getConnection();
             stmt = conn.createStatement();
-            ArrayList<String> cols = new ArrayList<>();
+            final ArrayList<String> cols = new ArrayList<>();
             rs = stmt.executeQuery("describe sample_" + sampleName.toLowerCase());
             while (rs.next()) {
                 cols.add(rs.getString(1));
             }
             cols.add("survival");
             cols.add("split");
-            return cols.stream().filter(s -> !listCol.contains(s)).map((String s) -> ControlParam.fromCol(s, cols)).collect(Collectors.toList());
+            return Functional.map(Functional.filter(cols, new Functional.Condition<String>() {
+                @Override
+                public boolean ifKeep(String elem) {
+                    return !listCol.contains(elem);
+                }
+            }), new Functional.Mapper<String, ControlParam>() {
+                @Override
+                public ControlParam map(String s) {
+                    return ControlParam.fromCol(s, cols);
+                }
+            });
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             return null;

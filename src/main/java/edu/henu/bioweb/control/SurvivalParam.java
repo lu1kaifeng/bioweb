@@ -1,14 +1,15 @@
 package edu.henu.bioweb.control;
 
+import edu.henu.bioweb.Functional;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class SurvivalParam extends ControlParam {
     private static Map<String, String> eventMap;
-    public final ArrayList<String> options;
+    public final List<String> options;
 
     public SurvivalParam(List<String> colList, String jspTemplate) {
         super(colList, jspTemplate);
@@ -29,9 +30,12 @@ public class SurvivalParam extends ControlParam {
             eventMap.put("DMS", "DMS_Event");
             eventMap.put("EFS", "EFS_Event");
         }
-        this.options = colList.stream().filter((String i) ->
-                eventMap.containsKey(i)
-        ).collect(Collectors.toCollection(ArrayList::new));
+        this.options = Functional.<String>filter(colList, new Functional.Condition<String>() {
+            @Override
+            public boolean ifKeep(String elem) {
+                return eventMap.containsKey(elem);
+            }
+        });
     }
 
     @Override

@@ -8,64 +8,64 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class ControlParam {
-    private static Map<String, IFunctionalParamConstructor> paramConstructorMap;
+    private static final Map<String, IFunctionalParamConstructor> paramConstructorMap;
     protected String jspTemplate;
-    public ControlParam(List<String> colList, String jspTemplate) {
+    public ControlParam(String dbName,List<String> colList, String jspTemplate) {
         this.jspTemplate = jspTemplate;
     }
     static {
         paramConstructorMap = new HashMap<>();
         paramConstructorMap.put("gender", new IFunctionalParamConstructor() {
             @Override
-            public ControlParam constructor(List<String> colList) {
-                return new GenderParam(colList, "/control/gender.jsp");
+            public ControlParam constructor(String dbName,List<String> colList) {
+                return new GenderParam(dbName,colList, "/control/gender.jsp");
             }
         });
         paramConstructorMap.put("histological_type", new IFunctionalParamConstructor() {
             @Override
-            public ControlParam constructor(List<String> colList) {
-                return  new HistologicalTypeParam(colList, "/control/histological_type.jsp");
+            public ControlParam constructor(String dbName,List<String> colList) {
+                return  new HistologicalTypeParam(dbName,colList, "/control/histological_type.jsp");
             }
         });
         paramConstructorMap.put("survival", new IFunctionalParamConstructor() {
             @Override
-            public ControlParam constructor(List<String> colList) {
-                return new SurvivalParam(colList, "/control/survival.jsp");
+            public ControlParam constructor(String dbName,List<String> colList) {
+                return new SurvivalParam(dbName,colList, "/control/survival.jsp");
             }
         });
         paramConstructorMap.put("lymph", new IFunctionalParamConstructor() {
             @Override
-            public ControlParam constructor(List<String> colList) {
-                return new LymphParam(colList, "/control/lymph.jsp");
+            public ControlParam constructor(String dbName,List<String> colList) {
+                return new LymphParam(dbName,colList, "/control/lymph.jsp");
             }
         });
         paramConstructorMap.put("race", new IFunctionalParamConstructor() {
             @Override
-            public ControlParam constructor(List<String> colList) {
-                return new RaceParam(colList, "/control/race.jsp");
+            public ControlParam constructor(String dbName,List<String> colList) {
+                return new RaceParam(dbName,colList, "/control/race.jsp");
             }
         });
         paramConstructorMap.put("smoking", new IFunctionalParamConstructor() {
             @Override
-            public ControlParam constructor(List<String> colList) {
-                return new SmokingParam(colList, "/control/smoking.jsp");
+            public ControlParam constructor(String dbName,List<String> colList) {
+                return new SmokingParam(dbName,colList, "/control/smoking.jsp");
             }
         } );
         paramConstructorMap.put("split", new IFunctionalParamConstructor() {
             @Override
-            public ControlParam constructor(List<String> colList) {
-                return new SplitParam(colList, "/control/split.jsp");
+            public ControlParam constructor(String dbName,List<String> colList) {
+                return new SplitParam(dbName,colList, "/control/split.jsp");
             }
         });
         paramConstructorMap.put("tnm", new IFunctionalParamConstructor() {
             @Override
-            public ControlParam constructor(List<String> colList) {
-                return new TNMParam(colList, "/control/tnm.jsp");
+            public ControlParam constructor(String dbName,List<String> colList) {
+                return new TNMParam(dbName,colList, "/control/tnm.jsp");
             }
         });
     }
-    public static ControlParam fromCol(String tagName, List<String> colList) {
-        return paramConstructorMap.get(tagName).constructor(colList);
+    public static ControlParam fromCol(String dbName,String tagName, List<String> colList) {
+        return paramConstructorMap.get(tagName).constructor(dbName,colList);
     }
 
     public abstract String getTagName();

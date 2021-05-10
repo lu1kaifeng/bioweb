@@ -3,8 +3,8 @@ package edu.henu.bioweb.control;
 import java.util.List;
 
 public class TNMParam extends ControlParam {
-    public TNMParam(List<String> colList, String jspTemplate) {
-        super(colList, jspTemplate);
+    public TNMParam(String dbName,List<String> colList, String jspTemplate) {
+        super(dbName,colList, jspTemplate);
     }
 
     @Override

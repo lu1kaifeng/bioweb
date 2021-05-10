@@ -62,7 +62,7 @@ public class BLCAFront extends HttpServlet {
 
     }
 
-    private List<ControlParam> getCols(String dbName, String sampleName) {
+    private List<ControlParam> getCols(final String dbName, String sampleName) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -104,7 +104,7 @@ public class BLCAFront extends HttpServlet {
             }), new Functional.Mapper<String, ControlParam>() {
                 @Override
                 public ControlParam map(String s) {
-                    return ControlParam.fromCol(s, cols);
+                    return ControlParam.fromCol(dbName,s, cols);
                 }
             });
         } catch (SQLException throwables) {

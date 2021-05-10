@@ -3,8 +3,8 @@ package edu.henu.bioweb.control;
 import java.util.List;
 
 public class GenderParam extends ControlParam {
-    public GenderParam(List<String> colList, String jspTemplate) {
-        super(colList, jspTemplate);
+    public GenderParam(String dbName,List<String> colList, String jspTemplate) {
+        super(dbName,colList, jspTemplate);
     }
 
 

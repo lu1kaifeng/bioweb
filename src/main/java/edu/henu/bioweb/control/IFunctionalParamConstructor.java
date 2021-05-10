@@ -2,7 +2,6 @@ package edu.henu.bioweb.control;
 
 import java.util.List;
 
-@FunctionalInterface
 public interface IFunctionalParamConstructor {
-    ControlParam constructor(List<String> colList);
+    ControlParam constructor(String dbName,List<String> colList);
 }

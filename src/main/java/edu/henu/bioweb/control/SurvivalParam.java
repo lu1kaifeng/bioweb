@@ -11,8 +11,8 @@ public class SurvivalParam extends ControlParam {
     private static Map<String, String> eventMap;
     public final List<String> options;
 
-    public SurvivalParam(List<String> colList, String jspTemplate) {
-        super(colList, jspTemplate);
+    public SurvivalParam(String dbName,List<String> colList, String jspTemplate) {
+        super(dbName,colList, jspTemplate);
         if (eventMap == null) {
             eventMap = new HashMap<>();
             eventMap.put("OS", "OS_Event");

@@ -3,8 +3,8 @@ package edu.henu.bioweb.control;
 import java.util.List;
 
 public class RaceParam extends ControlParam {
-    public RaceParam(List<String> colList, String jspTemplate) {
-        super(colList, jspTemplate);
+    public RaceParam(String dbName,List<String> colList, String jspTemplate) {
+        super(dbName,colList, jspTemplate);
     }
 
     @Override

@@ -3,8 +3,8 @@ package edu.henu.bioweb.control;
 import java.util.List;
 
 public class SmokingParam extends ControlParam {
-    public SmokingParam(List<String> colList, String jspTemplate) {
-        super(colList, jspTemplate);
+    public SmokingParam(String dbName,List<String> colList, String jspTemplate) {
+        super(dbName,colList, jspTemplate);
     }
 
     @Override
